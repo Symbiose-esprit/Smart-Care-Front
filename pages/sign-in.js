@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import { loginUser, userSelector, clearState } from './features/User/UserSlice';
 import { useHistory } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const SignIn = () => {
     const dispatch = useDispatch();
@@ -15,10 +16,16 @@ const SignIn = () => {
     const { isFetching, isSuccess, isError, errorMessage } = useSelector(
         userSelector
     );
-    const onSubmit = (data) => {
-        dispatch(loginUser(data));
+    const onSubmit = (name,password,email) => {
+        dispatch(loginUser(name,password,email));
     };
+    const nameValue = 'test';
+    const getName = (event)=>{
+        
+        nameValue = event.target.value;
 
+        console.log(nameValue);
+    };
     useEffect(() => {
         return () => {
             dispatch(clearState());
@@ -71,7 +78,7 @@ const SignIn = () => {
                                         <div className="row">
                                             <div className="col-lg-6">
                                                 <div className="form-group">
-                                                    <input type="text" className="form-control" placeholder="First Name" />
+                                                    <input type="text" className="form-control" placeholder="First Name" onChange={getName} />
                                                 </div>
                                             </div>
                                             <div className="col-lg-6">
@@ -100,7 +107,7 @@ const SignIn = () => {
 
                                             <div className="col-lg-12">
                                                 <div className="text-center">
-                                                    <button type="submit" className="btn signup-btn" onClick={onSubmit}>Login</button>
+                                                    <button type="submit" className="btn signup-btn" onClick={onSubmit(nameValue,password,email)}>Login</button>
                                                 </div>
                                             </div>
                                         </div>

@@ -37,7 +37,7 @@ export const signupUser = createAsyncThunk(
 
 export const loginUser = createAsyncThunk(
   'users/login',
-  async ({ email, password }, thunkAPI) => {
+  async ({ name ,email, password }, thunkAPI) => {
     try {
       const response = await fetch(
         'http://localhost:8000/api/v1/signin',
@@ -48,6 +48,7 @@ export const loginUser = createAsyncThunk(
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
+            name,
             email,
             password,
           }),
@@ -101,7 +102,7 @@ export const fetchUserBytoken = createAsyncThunk(
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    username: '',
+    name: '',
     password: '',
     isFetching: false,
     isSuccess: false,
