@@ -11,7 +11,7 @@ import { useHistory } from 'react-router-dom';
 const SignIn = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const { register, errors, handleSubmit } = useForm();
+
     const { isFetching, isSuccess, isError, errorMessage } = useSelector(
         userSelector
     );

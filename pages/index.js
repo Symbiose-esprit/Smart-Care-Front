@@ -11,10 +11,11 @@ import OurDoctors from '../components/Common/OurDoctors';
 import LatestBlogPost from '../components/Common/LatestBlogPost';
 import NewsletterForm from '../components/Common/NewsletterForm';
 import Footer from '../components/_App/Footer';
+import { Provider } from 'react-accessible-accordion/dist/types/components/ItemContext';
 
 const Index = () => {
     return (
-        <>
+        <Provider>
             <TopHeader />
 
             <Navbar />
@@ -38,7 +39,7 @@ const Index = () => {
             <NewsletterForm />
             
             <Footer />
-        </>
+        </Provider>
     )
 }
 

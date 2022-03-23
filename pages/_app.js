@@ -8,14 +8,19 @@ import 'react-accessible-accordion/dist/fancy-example.css'
 import '../public/css/style.css'
 import '../public/css/responsive.css'
 import '../public/css/rtl.css'
-
 import Layout from '../components/_App/Layout';
+import { Provider } from 'react-redux'
+import store from './store'
+
+
 
 const MyApp =  ({ Component, pageProps }) => {
     return (
+        <Provider store={store}>
         <Layout>
             <Component {...pageProps} />
         </Layout>
+        </Provider>
     )
 }
 
