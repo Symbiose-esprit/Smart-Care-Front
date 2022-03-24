@@ -17,7 +17,7 @@ const OurExpertise = () => {
                                     <div className="expertise-inner">
                                         <i className="icofont-doctor-alt"></i>
                                         <h3> 
-                                            <Link href="/doctor-details">
+                                            <Link href="/doctor/doctor-details">
                                                 <a>Certified Doctors</a>
                                             </Link>
                                         </h3>
@@ -28,7 +28,7 @@ const OurExpertise = () => {
                                     <div className="expertise-inner">
                                         <i className="icofont-stretcher"></i>
                                         <h3> 
-                                            <Link href="/doctor-details">
+                                            <Link href="/doctor/doctor-details">
                                                 <a>Emergency</a>
                                             </Link>
                                         </h3>
@@ -39,7 +39,7 @@ const OurExpertise = () => {
                                     <div className="expertise-inner">
                                         <i className="icofont-network"></i>
                                         <h3> 
-                                            <Link href="/doctor-details">
+                                            <Link href="/doctor/doctor-details">
                                                 <a>Teachnology</a>
                                             </Link>
                                         </h3>
@@ -50,7 +50,7 @@ const OurExpertise = () => {
                                     <div className="expertise-inner">
                                         <i className="icofont-ambulance-cross"></i>
                                         <h3> 
-                                            <Link href="/doctor-details">
+                                            <Link href="/doctor/doctor-details">
                                                 <a>Ambulance</a>
                                             </Link>
                                         </h3>

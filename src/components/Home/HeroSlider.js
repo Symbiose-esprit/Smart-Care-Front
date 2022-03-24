@@ -44,10 +44,10 @@ const HeroSlider = () => {
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
 
                                     <div className="common-btn">
-                                        <Link href="/appointment">
+                                        <Link href="/appointments/appointment">
                                             <a>Get Appointment</a>
                                         </Link>
-                                        <Link href="/about">
+                                        <Link href="/other/about">
                                             <a className="cmn-btn-right">Learn More</a>
                                         </Link>
                                     </div>
@@ -69,10 +69,10 @@ const HeroSlider = () => {
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
                                     
                                     <div className="common-btn">
-                                        <Link href="/appointment">
+                                        <Link href="/appointments/appointment">
                                             <a>Get Appointment</a>
                                         </Link>
-                                        <Link href="/about">
+                                        <Link href="/other/about">
                                             <a className="cmn-btn-right">Learn More</a>
                                         </Link>
                                     </div>
@@ -94,10 +94,10 @@ const HeroSlider = () => {
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
                                     
                                     <div className="common-btn">
-                                        <Link href="/appointment">
+                                        <Link href="/appointments/appointment">
                                             <a>Get Appointment</a>
                                         </Link>
-                                        <Link href="/about">
+                                        <Link href="/other/about">
                                             <a className="cmn-btn-right">Learn More</a>
                                         </Link>
                                     </div>

@@ -23,7 +23,7 @@ const Services = () => {
                                 <h3>Expert Doctor</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
 
-                                <Link href="/service-details">
+                                <Link href="/services/service-details">
                                     <a>Read More</a>
                                 </Link>
                             </div>
@@ -43,7 +43,7 @@ const Services = () => {
                                 <h3>Diagnosis</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
 
-                                <Link href="/service-details">
+                                <Link href="/services/service-details">
                                     <a>Read More</a>
                                 </Link>
                             </div>
@@ -63,7 +63,7 @@ const Services = () => {
                                 <h3>Pathology</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
 
-                                <Link href="/service-details">
+                                <Link href="/services/service-details">
                                     <a>Read More</a>
                                 </Link>
                             </div>
@@ -83,7 +83,7 @@ const Services = () => {
                                 <h3>Dental Care</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
 
-                                <Link href="/service-details">
+                                <Link href="/services/service-details">
                                     <a>Read More</a>
                                 </Link>
                             </div>
@@ -103,7 +103,7 @@ const Services = () => {
                                 <h3>Cardiology</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
                                 
-                                <Link href="/service-details">
+                                <Link href="/services/service-details">
                                     <a>Read More</a>
                                 </Link>
                             </div>
@@ -123,7 +123,7 @@ const Services = () => {
                                 <h3>Medicine</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
 
-                                <Link href="/service-details">
+                                <Link href="/services/service-details">
                                     <a>Read More</a>
                                 </Link>
                             </div>
@@ -143,7 +143,7 @@ const Services = () => {
                                 <h3>Neurology</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
 
-                                <Link href="/service-details">
+                                <Link href="/services/service-details">
                                     <a>Read More</a>
                                 </Link>
                             </div>
@@ -163,7 +163,7 @@ const Services = () => {
                                 <h3>Ambulance</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
 
-                                <Link href="/service-details">
+                                <Link href="/services/service-details">
                                     <a>Read More</a>
                                 </Link>
                             </div>

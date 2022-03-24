@@ -1,9 +1,9 @@
 import React from 'react';
-import AppointmentFormTwo from '../components/Common/AppointmentFormTwo';
-import PageBanner from '../components/Common/PageBanner';
-import Footer from '../components/_App/Footer';
-import Navbar from '../components/_App/Navbar';
-import TopHeader from '../components/_App/TopHeader';
+import AppointmentFormTwo from '../../components/Common/AppointmentFormTwo';
+import PageBanner from '../../components/Common/PageBanner';
+import Footer from '../../components/_App/Footer';
+import Navbar from '../../components/_App/Navbar';
+import TopHeader from '../../components/_App/TopHeader';
 
 const DoctorDetails = () => {
     return (
