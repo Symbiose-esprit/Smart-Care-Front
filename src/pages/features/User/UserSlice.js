@@ -38,6 +38,7 @@ export const signupUser = createAsyncThunk(
 export const loginUser = createAsyncThunk(
   'users/login',
   async ({ name, email, password }, thunkAPI) => {
+    console.log(name, email, password)
     try {
       const response = await fetch(
         'http://localhost:8000/signin',
@@ -45,7 +46,7 @@ export const loginUser = createAsyncThunk(
           method: 'POST',
           headers: {
             Accept: 'application/json',
-            'Content-Type': 'text/plain',
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({
             name,

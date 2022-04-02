@@ -3,32 +3,37 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import PageBanner from '../../components/Common/PageBanner';
-import Footer from '../../components/_App/Footer';
-import Navbar from '../../components/_App/Navbar';
-import TopHeader from '../../components/_App/TopHeader';
 import { clearState, signupUser, userSelector } from '../features/User/UserSlice';
 
 const SignUp = () => {
-  const dispatch = useDispatch();
+
+  // next/js router
+  const router = useRouter();
+  // react hook form props
   const { register, errors, handleSubmit } = useForm();
-  const history = useHistory();
+  // redux actions
+  const dispatch = useDispatch();
   const { isFetching, isSuccess, isError, errorMessage } = useSelector(
     userSelector
   );
+
+  // push data on submit
   const onSubmit = (data) => {
     dispatch(signupUser(data));
   };
+
   useEffect(() => {
     return () => {
       dispatch(clearState());
     };
   }, []);
+
+  // after submit
   useEffect(() => {
     if (isSuccess) {
       dispatch(clearState());
-      history.push('/');
+      router.push("/");
     }
     if (isError) {
       toast.error(errorMessage);
@@ -38,9 +43,7 @@ const SignUp = () => {
 
   return (
     <>
-      <TopHeader />
 
-      <Navbar />
 
       <PageBanner
         pageTitle="Sign Up"
@@ -125,7 +128,7 @@ const SignUp = () => {
         </div>
       </div>
 
-      <Footer />
+
     </>
   )
 }

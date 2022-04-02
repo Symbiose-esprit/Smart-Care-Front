@@ -1,40 +1,39 @@
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import Footer from '../../components/_App/Footer';
-import Navbar from '../../components/_App/Navbar';
-import TopHeader from '../../components/_App/TopHeader';
 import PageBanner from '../../components/Common/PageBanner';
 import { clearState, loginUser, userSelector } from '../features/User/UserSlice';
 
-const SignIn = () => {
-    const dispatch = useDispatch();
-    const history = useHistory();
 
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+const SignIn = () => {
+
+    // next/js router
+    const router = useRouter();
+    // react hook form props
     const { register, errors, handleSubmit } = useForm();
+    // redux actions
+    const dispatch = useDispatch();
     const { isFetching, isSuccess, isError, errorMessage } = useSelector(
         userSelector
     );
 
+    // push data on sumbit
     const onSubmit = (data) => {
         console.log(data);
         dispatch(loginUser(data));
     };
-    // const onSubmit = (name, password, email) => {
-    //     dispatch(loginUser(name, password, email));
-    // };
+
     useEffect(() => {
         return () => {
             dispatch(clearState());
         };
     }, []);
 
+
+    //after submit
     useEffect(() => {
         if (isError) {
             toast.error(errorMessage);
@@ -42,18 +41,13 @@ const SignIn = () => {
         }
 
         if (isSuccess) {
-
             dispatch(clearState());
-            history.push('/');
+            router.push("/");
         }
     }, [isError, isSuccess]);
 
     return (
         <>
-            <TopHeader />
-
-            <Navbar />
-
             <PageBanner
                 pageTitle="Sign In"
                 homePageUrl="/"
@@ -84,24 +78,24 @@ const SignIn = () => {
                                         <div className="row">
                                             <div className="col-lg-6">
                                                 <div className="form-group">
-                                                    <input type="text" name='name' className="form-control" placeholder="First Name" {...register("name")} onInput={e => setName(e.target.value)} />
+                                                    <input type="text" name='name' className="form-control" placeholder="First Name" {...register("name")} />
                                                 </div>
                                             </div>
                                             <div className="col-lg-6">
                                                 <div className="form-group">
-                                                    <input type="email" name='email' className="form-control" placeholder="Your Email"  {...register("email")} onInput={e => setEmail(e.target.value)} />
+                                                    <input type="email" name='email' className="form-control" placeholder="Your Email"  {...register("email")} />
                                                 </div>
                                             </div>
                                             <div className="col-lg-6">
                                                 <div className="form-group">
-                                                    <input type="password" name='password' className="form-control" placeholder="Password" {...register("password")} onInput={e => setPassword(e.target.value)} />
+                                                    <input type="password" name='password' className="form-control" placeholder="Password" {...register("password")} />
                                                 </div>
                                             </div>
                                             {/* <div className="col-lg-6">
-                                                <div className="form-group">
-                                                    <input type="password" className="form-control" placeholder="Confirm Password" />
-                                                </div>
-                                            </div> */}
+                                <div className="form-group">
+                                    <input type="password" className="form-control" placeholder="Confirm Password" />
+                                </div>
+                            </div> */}
 
                                             <div className="col-lg-12">
                                                 <div className="form-group">
@@ -124,8 +118,6 @@ const SignIn = () => {
                     </div>
                 </div>
             </div>
-
-            <Footer />
         </>
     )
 }

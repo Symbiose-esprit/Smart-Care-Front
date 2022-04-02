@@ -1,18 +1,18 @@
-import React from 'react';
 import dynamic from 'next/dynamic';
-const OwlCarousel = dynamic(import('react-owl-carousel3'));
 import Link from 'next/link';
+import React from 'react';
+const OwlCarousel = dynamic(import('react-owl-carousel3'));
 
 const options = {
-    items:1,
-    loop:true,
-    margin:0,
+    items: 1,
+    loop: true,
+    margin: 0,
     nav: true,
     dots: true,
     smartSpeed: 1000,
-    autoplay:false,
-    autoplayTimeout:9000,
-    autoplayHoverPause:true,
+    autoplay: false,
+    autoplayTimeout: 9000,
+    autoplayHoverPause: true,
     navText: [
         "<i class='icofont-simple-left'></i>",
         "<i class='icofont-simple-right'></i>"
@@ -27,7 +27,7 @@ const HeroSlider = () => {
     }, [])
     return (
         <>
-            {display ? <OwlCarousel 
+            {display ? <OwlCarousel
                 className="home-slider owl-carousel owl-theme"
                 {...options}
             >
@@ -67,7 +67,7 @@ const HeroSlider = () => {
                                     </div>
                                     <h1>Caring Health is Important Than All</h1>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
-                                    
+
                                     <div className="common-btn">
                                         <Link href="/appointments/appointment">
                                             <a>Get Appointment</a>
@@ -92,7 +92,7 @@ const HeroSlider = () => {
                                     </div>
                                     <h1>We Offer Highly Treatments</h1>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
-                                    
+
                                     <div className="common-btn">
                                         <Link href="/appointments/appointment">
                                             <a>Get Appointment</a>
