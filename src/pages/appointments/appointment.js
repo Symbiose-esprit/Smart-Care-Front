@@ -7,9 +7,7 @@ import Footer from '../../components/_App/Footer';
 const Appointment = () => {
     return (
         <>
-            <TopHeader />
 
-            <Navbar />
             
             <PageBanner 
                 pageTitle="Appointment" 
@@ -121,7 +119,6 @@ const Appointment = () => {
                 </div>
             </div>
 
-            <Footer />
         </>
     )
 }

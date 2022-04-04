@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import React from 'react';
-import PageBanner from '../components/Common/PageBanner';
-import Footer from '../components/_App/Footer';
-import Navbar from '../components/_App/Navbar';
-import TopHeader from '../components/_App/TopHeader';
+import PageBanner from '../../components/Common/PageBanner';
+import Footer from '../../components/_App/Footer';
+import Navbar from '../../components/_App/Navbar';
+import TopHeader from '../../components/_App/TopHeader';
 
 const Doctors = () => {
     return (
