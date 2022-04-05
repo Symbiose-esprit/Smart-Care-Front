@@ -9,7 +9,6 @@ import '../../public/css/meanmenu.css'
 import '../../public/css/responsive.css'
 import '../../public/css/rtl.css'
 import '../../public/css/style.css'
-import "../App.css";
 import Footer from '../components/_App/Footer'
 import Layout from '../components/_App/Layout'
 import Navbar from '../components/_App/Navbar'
