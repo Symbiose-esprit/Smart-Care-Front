@@ -1,0 +1,8 @@
+.newDoctor {
+    flex:4; 
+    margin-top:40px;
+}
+.doctorContainer {
+    display: flex;
+    margin-top: 20px;
+  }
