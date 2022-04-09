@@ -1,13 +1,13 @@
 import React from 'react';
-import LatestBlogPost from '../components/Common/LatestBlogPost';
-import NewsletterForm from '../components/Common/NewsletterForm';
-import OurDoctors from '../components/Common/OurDoctors';
-import VideoIntro from '../components/Common/VideoIntro';
-import AboutSection from '../components/Home/AboutSection';
-import HeroSlider from '../components/Home/HeroSlider';
-import OurExpertise from '../components/Home/OurExpertise';
-import Services from '../components/Home/Services';
-import Stats from '../components/Home/Stats';
+import LatestBlogPost from '../components/Client/Common/LatestBlogPost';
+import NewsletterForm from '../components/Client/Common/NewsletterForm';
+import OurDoctors from '../components/Client/Common/OurDoctors';
+import VideoIntro from '../components/Client/Common/VideoIntro';
+import AboutSection from '../components/Client/Home/AboutSection';
+import HeroSlider from '../components/Client/Home/HeroSlider';
+import OurExpertise from '../components/Client/Home/OurExpertise';
+import Services from '../components/Client/Home/Services';
+import Stats from '../components/Client/Home/Stats';
 
 
 const Index = () => {
