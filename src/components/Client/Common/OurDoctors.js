@@ -14,7 +14,7 @@ const OurDoctors = () => {
                         <div className="doctor-item">
                             <div className="doctor-top">
                                 <img src="/images/doctors/doctor1.jpg" alt="Doctor" />
-                                <Link href="/client/appointments//appointment">
+                                <Link href="/client/appointments/appointment">
                                     <a>Get Appointment</a>
                                 </Link>
                             </div>
@@ -33,7 +33,7 @@ const OurDoctors = () => {
                         <div className="doctor-item">
                             <div className="doctor-top">
                                 <img src="/images/doctors/doctor2.jpg" alt="Doctor" />
-                                <Link href="/client/appointments//appointment">
+                                <Link href="/client/appointments/appointment">
                                     <a>Get Appointment</a>
                                 </Link>
                             </div>
@@ -52,7 +52,7 @@ const OurDoctors = () => {
                         <div className="doctor-item">
                             <div className="doctor-top">
                                 <img src="/images/doctors/doctor3.jpg" alt="Doctor" />
-                                <Link href="/client/appointments//appointment">
+                                <Link href="/client/appointments/appointment">
                                     <a>Get Appointment</a>
                                 </Link>
                             </div>

@@ -2,10 +2,10 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const signupUser = createAsyncThunk(
   'users/signupUser',
-  async ({ name, email, password }, thunkAPI) => {
+  async ({ name, lastname, email, password }, thunkAPI) => {
     try {
       const response = await fetch(
-        'http://localhost:8000/api/v1/signup',
+        'http://localhost:8000/signup',
         {
           method: 'POST',
           headers: {
@@ -14,6 +14,7 @@ export const signupUser = createAsyncThunk(
           },
           body: JSON.stringify({
             name,
+            lastname,
             email,
             password,
           }),
@@ -103,8 +104,8 @@ export const fetchUserBytoken = createAsyncThunk(
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    name: '',
-    password: '',
+    username: '',
+    email: '', 
     isFetching: false,
     isSuccess: false,
     isError: false,
@@ -124,8 +125,8 @@ export const userSlice = createSlice({
       console.log('payload', payload);
       state.isFetching = false;
       state.isSuccess = true;
-      state.email = payload.user.email;
-      state.name = payload.user.name;
+      state.username = payload.username;
+      state.email = payload.email;
     },
     [signupUser.pending]: (state) => {
       state.isFetching = true;
@@ -133,11 +134,11 @@ export const userSlice = createSlice({
     [signupUser.rejected]: (state, { payload }) => {
       state.isFetching = false;
       state.isError = true;
-      state.errorMessage = payload.message;
+      //state.errorMessage = payload.message;
     },
     [loginUser.fulfilled]: (state, { payload }) => {
-      state.email = payload.email;
       state.name = payload.name;
+      state.email = payload.email;
       state.isFetching = false;
       state.isSuccess = true;
       return state;

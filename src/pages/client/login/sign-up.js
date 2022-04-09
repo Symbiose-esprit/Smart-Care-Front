@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,6 +21,7 @@ const SignUp = () => {
 
   // push data on submit
   const onSubmit = (data) => {
+    console.log(data);
     dispatch(signupUser(data));
   };
 
@@ -71,40 +72,40 @@ const SignUp = () => {
                 </div>
 
                 <div className="signup-form">
-                  <form>
+                  <form onSubmit={handleSubmit(onSubmit)} method="POST">
                     <div className="row">
                       <div className="col-lg-6">
                         <div className="form-group">
-                          <input type="text" className="form-control" placeholder="First Name" />
+                          <input type="text" name='name' className="form-control" placeholder="First Name" {...register("name")} />
                         </div>
                       </div>
                       <div className="col-lg-6">
                         <div className="form-group">
-                          <input type="text" className="form-control" placeholder="Last Name" />
+                          <input type="text" name='lastname' className="form-control" placeholder="Last Name"  {...register("lastname")} />
+                        </div>
+                      </div>
+                      {/* <div className="col-lg-6">
+                        <div className="form-group">
+                          <input type="text" name='tel' className="form-control" placeholder="Phone Number" {...register("tel")} />
+                        </div>
+                      </div> */}
+                      <div className="col-lg-6">
+                        <div className="form-group">
+                          <input type="email" name='email' className="form-control" placeholder="Your Email"  {...register("email")} />
                         </div>
                       </div>
                       <div className="col-lg-6">
                         <div className="form-group">
-                          <input type="text" className="form-control" placeholder="Phone Number" />
+                          <input type="password" name='password' className="form-control" placeholder="Password"  {...register("password")} />
                         </div>
                       </div>
-                      <div className="col-lg-6">
+                      {/* <div className="col-lg-6">
                         <div className="form-group">
-                          <input type="email" className="form-control" placeholder="Your Email" />
+                          <input type="password" name='name' className="form-control" placeholder="Confirm Password"  {...register("name")} />
                         </div>
-                      </div>
-                      <div className="col-lg-6">
-                        <div className="form-group">
-                          <input type="password" className="form-control" placeholder="Password" />
-                        </div>
-                      </div>
-                      <div className="col-lg-6">
-                        <div className="form-group">
-                          <input type="password" className="form-control" placeholder="Confirm Password" />
-                        </div>
-                      </div>
+                      </div> */}
 
-                      <div className="col-lg-12">
+                      {/* <div className="col-lg-12">
                         <div className="form-group">
                           <div className="form-check">
                             <input className="form-check-input" type="checkbox" id="gridCheck" />
@@ -113,7 +114,7 @@ const SignUp = () => {
                             </label>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
 
                       <div className="col-lg-12">
                         <div className="text-center">

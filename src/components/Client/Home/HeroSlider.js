@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import React from 'react';
+import { useEffect, useState } from 'react';
 const OwlCarousel = dynamic(import('react-owl-carousel3'));
 
 const options = {
@@ -20,9 +20,9 @@ const options = {
 };
 
 const HeroSlider = () => {
-    const [display, setDisplay] = React.useState(false);
+    const [display, setDisplay] = useState(false);
 
-    React.useEffect(() => {
+    useEffect(() => {
         setDisplay(true);
     }, [])
     return (
