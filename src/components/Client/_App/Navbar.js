@@ -91,6 +91,12 @@ const Navbar = () => {
                                         </li>
 
                                         <li className="nav-item">
+                                            <Link href="/client/blockchain/ETHswap" activeClassName="active">
+                                                <a onClick={toggleNavbar} className="nav-link">ETHswap</a>
+                                            </Link>
+                                        </li>
+
+                                        <li className="nav-item">
                                             <Link href="/client/doctor/departments" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">Departments</a>
                                             </Link>
