@@ -1,10 +1,7 @@
 import React from "react";
 import PageBanner from "../../../components/Client/Common/PageBanner";
 import UniHeader from "../../../components/Client/Common/UniHeader";
-
-const style = {
-  wrapper: `h-screen max-h-screen h-min-screen w-screen bg-[#2D242F] text-white select-none flex flex-col justify-between`,
-};
+import UniMain from "../../../components/Client/Common/UniMain";
 
 const ETHswap = () => {
   return (
@@ -17,9 +14,9 @@ const ETHswap = () => {
         bgImage="page-title-one"
       />
 
-      <div className={style.wrapper}>
+      <div className="ETHwrapper">
         <UniHeader />
-        <h2>main</h2>
+        <UniMain />
         <h2>transaction history</h2>
       </div>
     </>

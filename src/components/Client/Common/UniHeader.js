@@ -25,32 +25,32 @@ const UniHeader = () => {
   const [selectedNav, setSelectedNav] = useState("swap");
 
   return (
-    <div className={style.wrapper}>
-      <div className={style.headerLogo}>
+    <div className="wrapper">
+      <div className="headerLogo">
         <Image src={uniswapLogo} alt="uniswap" height={40} width={40} />
       </div>
-      <div className={style.nav}>
-        <div className={style.navItemsContainer}>
+      <div className="blockchainnav">
+        <div className="navItemsContainer">
           <div
             onClick={() => setSelectedNav("swap")}
-            className={`${style.navItem} ${
-              selectedNav === "swap" && style.activeNavItem
+            className={`${"navItem"} ${
+              selectedNav === "swap" && "activeNavItem"
             }`}
           >
             Swap
           </div>
           <div
             onClick={() => setSelectedNav("pool")}
-            className={`${style.navItem} ${
-              selectedNav === "pool" && style.activeNavItem
+            className={`${"navItem"} ${
+              selectedNav === "pool" && "activeNavItem"
             }`}
           >
             Pool
           </div>
           <div
             onClick={() => setSelectedNav("vote")}
-            className={`${style.navItem} ${
-              selectedNav === "vote" && style.activeNavItem
+            className={`${"navItem"} ${
+              selectedNav === "vote" && "activeNavItem"
             }`}
           >
             Vote
@@ -60,34 +60,34 @@ const UniHeader = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <div className={style.navItem}>
+            <div className={"navItem"}>
               Charts <FiArrowUpRight />
             </div>
           </a>
         </div>
       </div>
-      <div className={style.buttonsContainer}>
-        <div className={`${style.button} ${style.buttonPadding}`}>
-          <div className={style.buttonIconContainer}>
+      <div className="buttonsContainer">
+        <div className={`${"blockchainbutton"} ${"buttonPadding"}`}>
+          <div className="buttonIconContainer">
             <Image src={ethLogo} alt="eth logo" height={20} width={20} />
           </div>
           <p>Ethereum</p>
-          <div className={style.buttonIconContainer}>
+          <div className="buttonIconContainer">
             <AiOutlineDown />
           </div>
         </div>
 
         <div
           onClick={() => connectWallet()}
-          className={`${style.button} ${style.buttonPadding}`}
+          className={`${"blockchainbutton"} ${"buttonPadding"}`}
         >
-          <div className={`${style.buttonAccent} ${style.buttonPadding}`}>
+          <div className={`${"buttonAccent"} ${"buttonPadding"}`}>
             Connect Wallet
           </div>
         </div>
 
-        <div className={`${style.button} ${style.buttonPadding}`}>
-          <div className={`${style.buttonIconContainer} mx-2`}>
+        <div className={`${"blockchainbutton"} ${"buttonPadding"}`}>
+          <div className={`${"buttonIconContainer"} mx-2`}>
             <HiOutlineDotsVertical />
           </div>
         </div>
