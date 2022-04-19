@@ -1,10 +1,11 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import { AiOutlineDown } from "react-icons/ai";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import ethLogo from "../../../../public/images/eth.png";
 import uniswapLogo from "../../../../public/images/uniswap.png";
+import { TransactionContext } from "../../../../context/TransactionContext";
 
 const style = {
   wrapper: `p-4 w-screen flex justify-between items-center`,
@@ -23,6 +24,15 @@ const style = {
 
 const UniHeader = () => {
   const [selectedNav, setSelectedNav] = useState("swap");
+  const { connectWallet, currentAccount } = useContext(TransactionContext);
+  const [userName, setUserName] = useState();
+
+  useEffect(() => {
+    if(!currentAccount) return
+    setUserName(`${currentAccount.slice(0, 7)}...${currentAccount.slice(35)}`);
+  }, [currentAccount]);
+
+  console.log({ connectWallet, currentAccount });
 
   return (
     <div className="wrapper">
@@ -77,14 +87,20 @@ const UniHeader = () => {
           </div>
         </div>
 
-        <div
-          onClick={() => connectWallet()}
-          className={`${"blockchainbutton"} ${"buttonPadding"}`}
-        >
-          <div className={`${"buttonAccent"} ${"buttonPadding"}`}>
-            Connect Wallet
+        {currentAccount ? (
+          <div className={`${"blockchainbutton"} ${"buttonPadding"}`}>
+            <div className={"buttonTextContainer"}>{userName}</div>
           </div>
-        </div>
+        ) : (
+          <div
+            onClick={() => connectWallet()}
+            className={`${"blockchainbutton"} ${"buttonPadding"}`}
+          >
+            <div className={`${"buttonAccent"} ${"buttonPadding"}`}>
+              Connect Wallet
+            </div>
+          </div>
+        )}
 
         <div className={`${"blockchainbutton"} ${"buttonPadding"}`}>
           <div className={`${"buttonIconContainer"} mx-2`}>

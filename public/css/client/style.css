@@ -1591,6 +1591,12 @@ button:focus {
   height: 2rem;
 }
 
+.buttonTextContainer {
+  display: flex;
+  display: flex;
+  align-items: center;
+  height: 2rem;
+}
 
 .blockchainbutton {
   display: flex;
@@ -1628,44 +1634,44 @@ button:focus {
 /*-- End UniHeader --*/
 /*-- UniMain --*/
 .UniMainwrapper {
-  display: flex; 
-margin-top: 3.5rem; 
-display: flex; 
-justify-content: center; 
-align-items: center; 
-width: 100vw; 
+  display: flex;
+  margin-top: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
 }
 
 .UniMaincontent {
-  padding: 1rem; 
+  padding: 1rem;
   border-radius: 1rem;
   background-color: #191B1F;
   width: 40rem;
 }
 
 .UniMainformHeader {
-  display: flex; 
+  display: flex;
   padding-left: 0.5rem;
-  padding-right: 0.5rem; 
+  padding-right: 0.5rem;
   font-size: 1.25rem;
-  line-height: 1.75rem; 
-  font-weight: 600; 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
+  line-height: 1.75rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .transferPropContainer {
-  display: flex; 
-  padding: 1.5rem; 
+  display: flex;
+  padding: 1.5rem;
   margin-top: 0.75rem;
-  margin-bottom: 0.75rem; 
+  margin-bottom: 0.75rem;
   font-size: 1.875rem;
-  line-height: 2.25rem; 
-  display: flex; 
-  justify-content: space-between; 
-  border-radius: 1rem; 
-  border-width: 1px; 
+  line-height: 2.25rem;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 1rem;
+  border-width: 1px;
   background-color: #20242A;
   border: #20242A;
 }
@@ -1675,12 +1681,12 @@ width: 100vw;
 }
 
 .transferPropInput {
-  margin-bottom: 1.5rem; 
-  background-color: transparent; 
+  margin-bottom: 1.5rem;
+  background-color: transparent;
   font-size: 1.5rem;
-  line-height: 2rem; 
-  width: 100%; 
-  outline: 0; 
+  line-height: 2rem;
+  width: 100%;
+  outline: 0;
   border: none;
 }
 
@@ -1689,23 +1695,23 @@ width: 100vw;
 }
 
 .currencySelector {
-  display: flex; 
-  display: flex; 
-  width: 25%; 
-  }
+  display: flex;
+  display: flex;
+  width: 25%;
+}
 
 .currencySelectorContent {
-  display: flex; 
-  padding: 0.5rem; 
+  display: flex;
+  padding: 0.5rem;
   font-size: 1.25rem;
-  line-height: 1.75rem; 
-  font-weight: 500; 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  width: 100%; 
-  border-radius: 1rem; 
-  cursor: pointer; 
+  line-height: 1.75rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-radius: 1rem;
+  cursor: pointer;
   background-color: #2D2F36;
   margin-top: -0.2rem;
 }
@@ -1715,40 +1721,40 @@ width: 100vw;
 }
 
 .currencySelectorIcon {
-  display: flex; 
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  display: flex;
+  align-items: center;
 }
 
 .currencySelectorTicker {
   margin-left: 0.5rem;
-  margin-right: 0.5rem;   
+  margin-right: 0.5rem;
 }
 
 
 .currencySelectorArrow {
   font-size: 1.125rem;
-  line-height: 1.75rem;   
+  line-height: 1.75rem;
 }
 
 .confirmButton {
-  display: flex; 
+  display: flex;
   padding-top: 1.5rem;
-  padding-bottom: 1.5rem; 
+  padding-bottom: 1.5rem;
   padding-left: 2rem;
-  padding-right: 2rem; 
+  padding-right: 2rem;
   margin-top: 0.5rem;
-  margin-bottom: 0.5rem; 
+  margin-bottom: 0.5rem;
   font-size: 1.25rem;
-  line-height: 1.75rem; 
-  font-weight: 600; 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  border-radius: 1rem; 
-  border-width: 1px; 
-  cursor: pointer; 
-  background-color: #2172E5;  
+  line-height: 1.75rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  border-width: 1px;
+  cursor: pointer;
+  background-color: #2172E5;
   border: #2172E5;
 }
 

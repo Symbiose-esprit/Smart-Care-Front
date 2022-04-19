@@ -80,7 +80,7 @@ const MyApp = ({ Component, pageProps }) => {
               <Component {...pageProps} />
             </TransactionProvider>
             {/* component replaced by each page on render  */}
-39.22
+
             {/* presistant components between pages */}
             <Footer />
           </Layout>
