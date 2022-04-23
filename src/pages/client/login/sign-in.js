@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,7 +9,7 @@ import { clearState, loginUser, userSelector } from '../../features/User/UserSli
 
 
 const SignIn = () => {
-
+    /////////////////////////////
     // next/js router
     const router = useRouter();
     // react hook form props
@@ -19,7 +19,35 @@ const SignIn = () => {
     const { isFetching, isSuccess, isError, errorMessage } = useSelector(
         userSelector
     );
+    /////////////////////////////
+    // presist logged in user
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [user, setUser] = useState()
+    /////////////////////////////
 
+    /////////////////////////////
+    // get user if logged in
+    // useEffect(() => {
+    //     const loggedInUser = localStorage.getItem("user");
+    //     if (loggedInUser) {
+    //         const foundUser = JSON.parse(loggedInUser);
+    //         setUser(foundUser);
+    //     }
+    // }, []);
+    /////////////////////////////
+
+    /////////////////////////////
+    // logout function
+    // const handleLogout = () => {
+    //     setUser({});
+    //     setUsername("");
+    //     setPassword("");
+    //     localStorage.clear();
+    //   };
+    /////////////////////////////
+
+    /////////////////////////////
     // push data on sumbit
     const onSubmit = (data) => {
         console.log(data);
@@ -41,10 +69,21 @@ const SignIn = () => {
         }
 
         if (isSuccess) {
+            // clear redux vars
             dispatch(clearState());
+            // get the login data since its a succesful login
+
+            console.log(username + " login presist");
+            const data = { username, password };
+            // set the state of the user
+            setUser(data);
+            console.log("User information : " + JSON.stringify(user));
+            // store the user in localStorage
+            localStorage.setItem('user', JSON.stringify(data))
             router.push("/");
         }
     }, [isError, isSuccess]);
+    /////////////////////////////
 
     return (
         <>
@@ -78,7 +117,7 @@ const SignIn = () => {
                                         <div className="row">
                                             <div className="col-lg-6">
                                                 <div className="form-group">
-                                                    <input type="text" name='name' className="form-control" placeholder="First Name" {...register("name")} />
+                                                    <input type="text" name='name' className="form-control" placeholder="Username" {...register("name")} onInput={({ target }) => setUsername(target.value)} />
                                                 </div>
                                             </div>
                                             <div className="col-lg-6">
@@ -88,7 +127,7 @@ const SignIn = () => {
                                             </div>
                                             <div className="col-lg-6">
                                                 <div className="form-group">
-                                                    <input type="password" name='password' className="form-control" placeholder="Password" {...register("password")} />
+                                                    <input type="password" name='password' className="form-control" placeholder="Password" {...register("password")} onInput={({ target }) => setPassword(target.value)} />
                                                 </div>
                                             </div>
                                             {/* <div className="col-lg-6">

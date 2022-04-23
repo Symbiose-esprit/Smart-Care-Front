@@ -47,48 +47,60 @@ import store from './features/store'
 
 const MyApp = ({ Component, pageProps }) => {
 
-    // const [admin, setDisplay] = useState(false);
+    const [user, setUser] = useState()
+    /////////////////////////////
+    // get user if logged in
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem("user");
+        if (loggedInUser) {
+            const foundUser = JSON.parse(loggedInUser);
+            setUser(foundUser);
+            console.log(foundUser);
+        }
+    }, []);
+    /////////////////////////////
 
-    // useEffect(() => {
-    //     setDisplay(true);
-    // }, [])
+    const [admin, setDisplay] = useState(false);
+
+    useEffect(() => {
+
+        setDisplay(true);
+    }, [])
     return (
 
-        // Tests if the user logged in is an admin or not  
-        // {admin ?
-        //     <>
-        //         {/* presistant component between page ( admin ) */}
-        //         <Topbar />
-        //         <div className="container" id="admin">
-        //             <Sidebar />
+        // <>
+        //     {admin ?
+        //         <>
+        //             {/* presistant component between page ( admin ) */}
+        //             <Topbar />
+        //             <div className="container" id="admin">
+        //                 <Sidebar />
 
-        //             {/* component replaced by each page on render  */}
-        //             <Component {...pageProps} />
+        //                 {/* component replaced by each page on render  */}
+        //                 <Component {...pageProps} />
 
-        //         </div>
-        //     </>
+        //             </div>
+        //         </>
 
-        //     :
+        //         :
+                <>
+                    <Provider store={store}>
+                        <Layout>
+                            {/* presistant components between pages */}
+                            <TopHeader />
+                            <Navbar />
 
-        <>
+                            {/* component replaced by each page on render  */}
+                            <Component {...pageProps} />
 
-            {/* //  if the user is a client ( doctor/ client ) */}
-            <>
-                <Provider store={store}>
-                    <Layout>
-                        {/* presistant components between pages */}
-                        <TopHeader />
-                        <Navbar />
+                            {/* presistant components between pages */}
+                            <Footer />
+                        </Layout>
+                    </Provider>
+                </>
+        //     }
 
-                        {/* component replaced by each page on render  */}
-                        <Component {...pageProps} />
-
-                        {/* presistant components between pages */}
-                        <Footer />
-                    </Layout>
-                </Provider>
-            </>
-        </>
+        // </>
     )
 }
 

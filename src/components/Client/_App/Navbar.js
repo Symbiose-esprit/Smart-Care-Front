@@ -121,7 +121,7 @@ const Navbar = () => {
                                         </li>
 
                                         <li className="nav-item">
-                                            <Link href="404" activeClassName="active">
+                                            <Link href="/404" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">404 Error Page</a>
                                             </Link>
                                         </li>
