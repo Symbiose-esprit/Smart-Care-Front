@@ -1,52 +1,141 @@
-import React from 'react';
-import PageBanner from '../../../components/Client/Common/PageBanner';
+import React, { useEffect, useState } from "react";
+import PageBanner from "../../../components/Client/Common/PageBanner";
+import { distance } from "./hooks/useLocationDistance";
 
 const ServiceDetails = () => {
-    return (
-        <>
+  const trialDetail = {
+    location: "",
+    recruiting_status: "",
+    organisation: "",
+    starts: "",
+    locations: [
+      { latitude: "44.500000", longitude: "89.500000" },
+      { latitude: "39.913818", longitude: "116.363625" },
+      { latitude: "1.290270", longitude: "103.851959" },
+      { latitude: "35.652832", longitude: "139.839478" },
+    ],
+  };
+  const locationTotal = trialDetail.location.length;
+  const getFinalTrial = () => {
+    if (trialDetail && locationTotal >= 1) {
+      const trialLatitude = trialDetail.locations.map((el) => el.latitude);
+      const trialLongitude = trialDetail.locations.map((el) => el.longitude);
+      const distanceArray = trialLatitude.map((lat, idx) => {
+        const log = trialLongitude[idx];
+        return distance(
+          locationPosition.defaultLatitude,
+          locationPosition.defaultLongitude,
+          lat,
+          log
+        );
+      });
+      const closest = Math.min(...distanceArray);
+      console.log(closest);
+      const closestLocationIndex = distanceArray.indexOf(closest);
+      return trialDetail.locations[closestLocationIndex];
+    }
+    return {};
+  };
+  const [finalInfo, setFinalInfo] = useState([]);
+  useEffect(() => {
+    const finalLocationInfo = getFinalTrial();
+    setFinalInfo({
+      ...finalLocationInfo,
+      locationAdress: `${finalLocationInfo.city},
+                             ${finalLocationInfo.state_province},
+                             ${finalLocationInfo.country} `,
 
-            <PageBanner
-                pageTitle="Service Details"
-                homePageUrl="/"
-                homePageText="Home"
-                activePageText="Service Details"
-                bgImage="page-title-one"
-            />
+      recruitmentStatus: finalLocationInfo.recruiting_status,
+      organisationAdress: finalLocationInfo.name,
+    });
+    console.log(finalInfo);
+  }, []);
 
-            <div className="service-details-area ptb-100">
-                <div className="container">
-                    <div className="services-details-img">
-                        <img src="/images/service-details-bg.jpg" alt="Service Details" />
+  return (
+    <>
+      <PageBanner
+        pageTitle="Service Details"
+        homePageUrl="/"
+        homePageText="Home"
+        activePageText="Service Details"
+        bgImage="page-title-one"
+      />
 
-                        <h2>Our Hospital Always Provide Good Services</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+      <div className="service-details-area ptb-100">
+        <div className="container">
+          <div className="services-details-img">
+            <img src="/images/service-details-bg.jpg" alt="Service Details" />
 
-                        <blockquote>
-                            <i className="icofont-quote-left"></i>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint optio rem magni, dolorum aut vel nostrum quae, fugit necessitatibus eius perferendis. Quia optio tenetur pariatur aliquam obcaecati enim quam eum?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint optio rem magni, dolorum aut vel nostrum quae, fugit necessitatibus eius perferendis. Quia optio tenetur pariatur aliquam obcaecati enim quam eum?
-                        </blockquote>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    </div>
+            <h2>Our Hospital Always Provide Good Services</h2>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets
+              containing Lorem Ipsum passages, and more recently with desktop
+              publishing software like Aldus PageMaker including versions of
+              Lorem Ipsum.
+            </p>
 
-                    <div className="row">
-                        <div className="col-lg-5">
-                            <div className="service-details-inner-left">
-                                <img src="/images/signup-bg.jpg" alt="Service" />
-                            </div>
-                        </div>
-                        <div className="col-lg-7">
-                            <div className="service-details-inner">
-                                <h2>We Always Take Care Our Patient</h2>
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto blanditiis obcaecati veritatis magnam pariatur molestiae in maxime. Animi quae vitae in inventore. Totam mollitia aspernatur provident veniam aperiam placeat impedit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem natus nobis, dolorum nam excepturi iure autem nemo ducimus temporibus facere, est eum voluptatem, culpa optio fugit assumenda quod? Praesentium.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, laudantium ullam, iure distinctio officia libero voluptatem obcaecati vero deleniti minima nemo itaque alias nisi eveniet soluta architecto quae laboriosam unde.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <blockquote>
+              <i className="icofont-quote-left"></i>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
+              optio rem magni, dolorum aut vel nostrum quae, fugit
+              necessitatibus eius perferendis. Quia optio tenetur pariatur
+              aliquam obcaecati enim quam eum?Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Sint optio rem magni, dolorum aut
+              vel nostrum quae, fugit necessitatibus eius perferendis. Quia
+              optio tenetur pariatur aliquam obcaecati enim quam eum?
+            </blockquote>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets
+              containing Lorem Ipsum passages, and more recently with desktop
+              publishing software like Aldus PageMaker including versions of
+              Lorem Ipsum.
+            </p>
+          </div>
+
+          <div className="row">
+            <div className="col-lg-5">
+              <div className="service-details-inner-left">
+                <img src="/images/signup-bg.jpg" alt="Service" />
+              </div>
             </div>
-
-        </>
-    )
-}
+            <div className="col-lg-7">
+              <div className="service-details-inner">
+                <h2>We Always Take Care Our Patient</h2>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Architecto blanditiis obcaecati veritatis magnam pariatur
+                  molestiae in maxime. Animi quae vitae in inventore. Totam
+                  mollitia aspernatur provident veniam aperiam placeat impedit!
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Saepe rem natus nobis, dolorum nam excepturi iure autem nemo
+                  ducimus temporibus facere, est eum voluptatem, culpa optio
+                  fugit assumenda quod? Praesentium.
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Id,
+                  laudantium ullam, iure distinctio officia libero voluptatem
+                  obcaecati vero deleniti minima nemo itaque alias nisi eveniet
+                  soluta architecto quae laboriosam unde.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default ServiceDetails;

@@ -1,7 +1,9 @@
+import { map } from 'leaflet';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import PageBanner from '../../../components/Client/Common/PageBanner';
+
 
 
 const Services = () => {
@@ -12,8 +14,9 @@ const Services = () => {
     const [longitude, setLongitude] = useState(0);
     const [pos, setPos] = useState([latitude, longitude])
 
+    
     ///////////////////////////////////
-    // map import 
+    //map import 
     const Map = React.useMemo(() => dynamic(
         () => import('./map'), // replace '@components/map' with your component's location
         {
@@ -28,6 +31,8 @@ const Services = () => {
     ///////////////////////////////////
     // get current position
     useEffect(() => {
+        
+        
         navigator.geolocation.getCurrentPosition(function (position) {
             // console.log("Latitude is :", position.coords.latitude);
             // console.log("Longitude is :", position.coords.longitude);
@@ -38,8 +43,12 @@ const Services = () => {
             pos = [position.coords.latitude, position.coords.longitude];
             setPos(pos = pos)
             console.log("This is pos inside useEffect : " + pos)
+            
         });
+       
     }, []);
+
+
     ///////////////////////////////////
 
     return (
