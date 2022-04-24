@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,6 +18,8 @@ const SignUp = () => {
   const { isFetching, isSuccess, isError, errorMessage } = useSelector(
     userSelector
   );
+
+
 
   // push data on submit
   const onSubmit = (data) => {
@@ -76,12 +78,12 @@ const SignUp = () => {
                     <div className="row">
                       <div className="col-lg-6">
                         <div className="form-group">
-                          <input type="text" name='name' className="form-control" placeholder="First Name" {...register("name")} />
+                          <input type="text" name='name' className="form-control" placeholder="First Name" {...register("name")} onInput={({ target }) => setUsername(target.value)} />
                         </div>
                       </div>
                       <div className="col-lg-6">
                         <div className="form-group">
-                          <input type="text" name='lastname' className="form-control" placeholder="Last Name"  {...register("lastname")} />
+                          <input type="text" name='lastname' className="form-control" placeholder="Last Name"  {...register("lastname")} onInput={({ target }) => setPassword(target.value)} />
                         </div>
                       </div>
                       {/* <div className="col-lg-6">

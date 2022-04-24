@@ -1,12 +1,49 @@
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PageBanner from '../../../components/Client/Common/PageBanner';
 
 
 const Services = () => {
+
+    ///////////////////////////////////
+    // user's position vars
+    const [latitude, setLatitude] = useState(0);
+    const [longitude, setLongitude] = useState(0);
+    const [pos, setPos] = useState([latitude, longitude])
+
+    ///////////////////////////////////
+    // map import 
+    const Map = React.useMemo(() => dynamic(
+        () => import('./map'), // replace '@components/map' with your component's location
+        {
+            loading: () => <p>A map is loading</p>,
+            ssr: false // This line is important. It's what prevents server-side render
+        }
+    ),
+        /* list variables which should trigger a re-render here */
+        [pos])
+    ///////////////////////////////////
+
+    ///////////////////////////////////
+    // get current position
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            // console.log("Latitude is :", position.coords.latitude);
+            // console.log("Longitude is :", position.coords.longitude);
+            setLatitude(latitude = position.coords.latitude);
+            //  console.log(latitude)
+            setLongitude(longitude = position.coords.longitude);
+            // console.log(longitude)
+            pos = [position.coords.latitude, position.coords.longitude];
+            setPos(pos = pos)
+            console.log("This is pos inside useEffect : " + pos)
+        });
+    }, []);
+    ///////////////////////////////////
+
     return (
         <>
-
             <PageBanner
                 pageTitle="Services"
                 homePageUrl="/"
@@ -14,6 +51,11 @@ const Services = () => {
                 activePageText="Services"
                 bgImage="page-title-one"
             />
+
+            <>
+                {/* Load the map component from the map.jsx file here and pass the pos variable in the props */}
+                <Map pos={pos} />
+            </>
 
             <div className="services-area pt-100 pb-70">
                 <div className="container">

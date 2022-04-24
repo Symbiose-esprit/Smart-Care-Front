@@ -48,46 +48,63 @@ import { TransactionProvider } from "../../context/TransactionContext";
 const MyApp = ({ Component, pageProps }) => {
   // const [admin, setDisplay] = useState(false);
 
-  // useEffect(() => {
-  //     setDisplay(true);
-  // }, [])
+  const [user, setUser] = useState()
+  /////////////////////////////
+  // get user if logged in
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setUser(foundUser);
+      console.log(foundUser);
+    }
+  }, []);
+  /////////////////////////////
+
+  const [admin, setDisplay] = useState(false);
+
+  useEffect(() => {
+
+    setDisplay(true);
+  }, [])
   return (
-    // Tests if the user logged in is an admin or not
-    // {admin ?
-    //     <>
-    //         {/* presistant component between page ( admin ) */}
-    //         <Topbar />
-    //         <div className="container" id="admin">
-    //             <Sidebar />
 
-    //             {/* component replaced by each page on render  */}
-    //             <Component {...pageProps} />
+    // <>
+    //     {admin ?
+    //         <>
+    //             {/* presistant component between page ( admin ) */}
+    //             <Topbar />
+    //             <div className="container" id="admin">
+    //                 <Sidebar />
 
-    //         </div>
-    //     </>
+    //                 {/* component replaced by each page on render  */}
+    //                 <Component {...pageProps} />
 
-    //     :
+    //             </div>
+    //         </>
 
+    //         :
     <>
-      {/* //  if the user is a client ( doctor/ client ) */}
-      <>
-        <Provider store={store}>
-          <Layout>
-            {/* presistant components between pages */}
-            <TopHeader />
-            <Navbar />
-            <TransactionProvider>
-              <Component {...pageProps} />
-            </TransactionProvider>
-            {/* component replaced by each page on render  */}
+      <Provider store={store}>
+        <Layout>
+          {/* presistant components between pages */}
+          <TopHeader />
+          <Navbar />
 
-            {/* presistant components between pages */}
-            <Footer />
-          </Layout>
-        </Provider>
-      </>
+          {/* component replaced by each page on render  */}
+          <TransactionProvider>
+            <Component {...pageProps} />
+          </TransactionProvider>
+
+          {/* presistant components between pages */}
+          <Footer />
+        </Layout>
+      </Provider>
     </>
-  );
-};
+    //     }
+
+    // </>
+  )
+}
 
 export default MyApp;

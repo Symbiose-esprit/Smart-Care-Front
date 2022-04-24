@@ -101,17 +101,28 @@ export const fetchUserBytoken = createAsyncThunk(
   }
 );
 
+// export const getInitialState = createAsyncThunk(
+//   'users/fetchuser',
+//   async ({ name, password }, thunkAPI) => {
+//     return state;
+//   }
+// );
+
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
     username: '',
-    email: '', 
+    email: '',
+    password: '',
     isFetching: false,
     isSuccess: false,
     isError: false,
     errorMessage: '',
   },
   reducers: {
+    // getInitialState: (state) => {
+    //   return state;
+    // },
     clearState: (state) => {
       state.isError = false;
       state.isSuccess = false;
@@ -121,6 +132,9 @@ export const userSlice = createSlice({
     },
   },
   extraReducers: {
+    // [getInitialState.fulfilled]: {
+
+    // },
     [signupUser.fulfilled]: (state, { payload }) => {
       console.log('payload', payload);
       state.isFetching = false;

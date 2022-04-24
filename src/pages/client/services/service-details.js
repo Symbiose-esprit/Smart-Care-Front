@@ -1,5 +1,5 @@
 import React from 'react';
-import PageBanner from '../../components/Client/Common/PageBanner';
+import PageBanner from '../../../components/Client/Common/PageBanner';
 
 const ServiceDetails = () => {
     return (
