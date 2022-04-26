@@ -20,6 +20,4 @@ export function distance(lat1, lon1 , lat2, lon2, name){
         dist *= 0.8684;
     }
     return dist;
-
-
 }

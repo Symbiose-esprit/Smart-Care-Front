@@ -1,16 +1,15 @@
-import L, { Icon } from "leaflet";
-import markerIconPng from "leaflet/dist/images/marker-icon.png";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
-  iconUrl: require("leaflet/dist/images/marker-icon.png"),
-  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+// L.Icon.Default.mergeOptions({
+//   iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+//   iconUrl: require("leaflet/dist/images/marker-icon.png"),
+//   shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
 
-});
-
+// });
+const icon = L.icon({ iconUrl: "/images/marker-icon.png" });
 
 const Map = (props) => {
   return (
@@ -25,7 +24,7 @@ const Map = (props) => {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={props.pos}>
+        <Marker position={props.pos} icon={icon}>
           <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
