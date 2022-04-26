@@ -19,11 +19,8 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-<<<<<<< Updated upstream
-=======
     "@videosdk.live/rtc-js-prebuilt": "^0.1.26",
     "@videosdk.live/react-sdk": "^0.1.28",
->>>>>>> Stashed changes
     "axios": "^0.21.4",
     "ethers": "^5.6.4",
     "next": "^12.1.0",
