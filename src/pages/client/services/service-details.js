@@ -1,50 +1,91 @@
-import React from 'react';
-import PageBanner from '../../../components/Client/Common/PageBanner';
+import React ,{ useEffect }from 'react';
+import { VideoSDKMeeting } from "@videosdk.live/rtc-js-prebuilt";
+
 
 const ServiceDetails = () => {
-    return (
+    useEffect(() => {
+        const apiKey = "ecbcbaaa-7f04-4496-8c90-eec0ef663b62";
+        const meetingId = "milkyway";
+        const name = "Demo User";
+    
+        const config = {
+          name: name,
+          meetingId: meetingId,
+          apiKey: apiKey,
+    
+          containerId: null,
+          redirectOnLeave: "http://localhost:3000/",
+    
+          micEnabled: true,
+          webcamEnabled: true,
+          participantCanToggleSelfWebcam: true,
+          participantCanToggleSelfMic: true,
+    
+          chatEnabled: true,
+          screenShareEnabled: true,
+          pollEnabled: true,
+          whiteboardEnabled: true,
+          raiseHandEnabled: true,
+    
+          recordingEnabled: true,
+          recordingEnabledByDefault: false,
+          recordingWebhookUrl: "https://www.videosdk.live/callback",
+          recordingAWSDirPath: `/meeting-recordings/${meetingId}/`, // automatically save recording in this s3 path
+    
+          brandingEnabled: true,
+          brandName: "Smart Care",
+    
+          participantCanLeave: true, // if false, leave button won't be visible
+    
+          livestream: {
+            autoStart: true,
+            outputs: [
+              // {
+              //   url: "rtmp://x.rtmp.youtube.com/live2",
+              //   streamKey: "<STREAM KEY FROM YOUTUBE>",
+              // },
+            ],
+          },
+    
+          permissions: {
+            askToJoin: false, // Ask joined participants for entry in meeting
+            toggleParticipantMic: true, // Can toggle other participant's mic
+            toggleParticipantWebcam: true, // Can toggle other participant's webcam
+            removeParticipant: true, // Remove other participant from meeting
+            endMeeting: true, // End meeting for all participant
+            drawOnWhiteboard: true, // Can Draw on whiteboard
+            toggleWhiteboard: true, // Can toggle whiteboard
+            toggleRecording: true, // Can toggle recording
+          },
+    
+          joinScreen: {
+            visible: true, // Show the join screen ?
+            title: "Doctor consultation Call", // Meeting title
+            meetingUrl: window.location.href, // Meeting joining url
+          },
+    
+          pin: {
+            allowed: true, // participant can pin any participant in meeting
+            layout: "SPOTLIGHT", // meeting layout - GRID | SPOTLIGHT | SIDEBAR
+          },
+    
+          leftScreen: {
+            // visible when redirect on leave not provieded
+            actionButton: {
+              // optional action button
+              label: "Video SDK Live", // action button label
+              href: "https://videosdk.live/", // action button href
+            },
+          },
+        };
+    
+        const meeting = new VideoSDKMeeting();
+        meeting.init(config);
+      }, []);
+
+      //return <div></div>;
+      return (
         <>
-
-            <PageBanner
-                pageTitle="Service Details"
-                homePageUrl="/"
-                homePageText="Home"
-                activePageText="Service Details"
-                bgImage="page-title-one"
-            />
-
-            <div className="service-details-area ptb-100">
-                <div className="container">
-                    <div className="services-details-img">
-                        <img src="/images/service-details-bg.jpg" alt="Service Details" />
-
-                        <h2>Our Hospital Always Provide Good Services</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-                        <blockquote>
-                            <i className="icofont-quote-left"></i>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint optio rem magni, dolorum aut vel nostrum quae, fugit necessitatibus eius perferendis. Quia optio tenetur pariatur aliquam obcaecati enim quam eum?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint optio rem magni, dolorum aut vel nostrum quae, fugit necessitatibus eius perferendis. Quia optio tenetur pariatur aliquam obcaecati enim quam eum?
-                        </blockquote>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-lg-5">
-                            <div className="service-details-inner-left">
-                                <img src="/images/signup-bg.jpg" alt="Service" />
-                            </div>
-                        </div>
-                        <div className="col-lg-7">
-                            <div className="service-details-inner">
-                                <h2>We Always Take Care Our Patient</h2>
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto blanditiis obcaecati veritatis magnam pariatur molestiae in maxime. Animi quae vitae in inventore. Totam mollitia aspernatur provident veniam aperiam placeat impedit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem natus nobis, dolorum nam excepturi iure autem nemo ducimus temporibus facere, est eum voluptatem, culpa optio fugit assumenda quod? Praesentium.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, laudantium ullam, iure distinctio officia libero voluptatem obcaecati vero deleniti minima nemo itaque alias nisi eveniet soluta architecto quae laboriosam unde.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </>
     )
 }
