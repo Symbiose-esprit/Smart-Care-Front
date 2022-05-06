@@ -101,12 +101,7 @@ export const fetchUserBytoken = createAsyncThunk(
   }
 );
 
-// export const getInitialState = createAsyncThunk(
-//   'users/fetchuser',
-//   async ({ name, password }, thunkAPI) => {
-//     return state;
-//   }
-// );
+
 
 export const userSlice = createSlice({
   name: 'user',
@@ -120,9 +115,7 @@ export const userSlice = createSlice({
     errorMessage: '',
   },
   reducers: {
-    // getInitialState: (state) => {
-    //   return state;
-    // },
+    
     clearState: (state) => {
       state.isError = false;
       state.isSuccess = false;
