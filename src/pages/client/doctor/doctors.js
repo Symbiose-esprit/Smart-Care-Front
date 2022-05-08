@@ -1,8 +1,27 @@
 import Link from 'next/link';
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import PageBanner from '../../../components/Client/Common/PageBanner';
+import { DiseaseSelector, predictDisease } from '../../../components/features/User/DiseaseSlice';
 
 const Doctors = () => {
+
+    // redux actions
+    const dispatch = useDispatch();
+    const { } = useSelector(
+        DiseaseSelector
+    );
+
+
+    // push data on submit
+    const onSubmit = (data) => {
+        data = {
+            "symptoms": "acidity"
+        }
+        console.log(data);
+        dispatch(predictDisease(data));
+    };
     return (
         <>
 
@@ -26,7 +45,7 @@ const Doctors = () => {
                                         <label>Search</label>
                                         <input type="text" className="form-control" placeholder="Doctor Name" />
                                     </div>
-                                    <button type="submit" className="btn doctor-search-btn">
+                                    <button type="submit" onSubmit={onSubmit()} className="btn doctor-search-btn">
                                         <i className="icofont-search-1"></i>
                                     </button>
                                 </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { contractABI, contractAddress } from "../lib/constants";
 import { ethers } from "ethers";
 import { client } from "../lib/sanityClient";
-import { useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 
 export const TransactionContext = React.createContext();
 
@@ -40,16 +40,16 @@ export const TransactionProvider = ({ children }) => {
 
   useEffect(() => {
     if (!currentAccount) return
-    ;(async() => {
-      const userDoc = {
-        _type: 'users',
-        _id: currentAccount,
-        userName: 'Unnamed',
-        address: currentAccount,
-      }
+      ; (async () => {
+        const userDoc = {
+          _type: 'users',
+          _id: currentAccount,
+          userName: 'Unnamed',
+          address: currentAccount,
+        }
 
-      await client.createIfNotExists(userDoc)
-    })()
+        await client.createIfNotExists(userDoc)
+      })()
   }, [currentAccount])
 
   const connectWallet = async (metamask = eth) => {
@@ -115,7 +115,7 @@ export const TransactionProvider = ({ children }) => {
 
       await transactionHash.wait();
 
-      await saveTransaction (
+      await saveTransaction(
         transactionHash.hash,
         amount,
         connectedAccount,

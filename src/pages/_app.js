@@ -42,7 +42,7 @@ import Navbar from "../components/Client/_App/Navbar";
 import TopHeader from "../components/Client/_App/TopHeader";
 //////////////////////////////
 // redux store import
-import store from "./features/store";
+import store from "../components/features/store";
 import { TransactionProvider } from "../../context/TransactionContext";
 
 const MyApp = ({ Component, pageProps }) => {
@@ -73,6 +73,7 @@ const MyApp = ({ Component, pageProps }) => {
     //     {admin ?
     //         <>
     //             {/* presistant component between page ( admin ) */}
+    //             <Provider store={store}>
     //             <Topbar />
     //             <div className="container" id="admin">
     //                 <Sidebar />
@@ -81,6 +82,7 @@ const MyApp = ({ Component, pageProps }) => {
     //                 <Component {...pageProps} />
 
     //             </div>
+    //             </Provider>
     //         </>
 
     //         :
