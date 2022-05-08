@@ -7,13 +7,7 @@ import UniMain from "../../../components/Client/Common/UniMain";
 const ETHswap = () => {
   return (
     <>
-      <PageBanner
-        pageTitle="ETHswap"
-        homePageUrl="/"
-        homePageText="Home"
-        activePageText="ETHswap"
-        bgImage="page-title-one"
-      />
+      
 
       <div className="ETHwrapper">
         <UniHeader />
