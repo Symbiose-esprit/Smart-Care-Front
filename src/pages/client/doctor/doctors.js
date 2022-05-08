@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import PageBanner from '../../../components/Client/Common/PageBanner';
-import { DiseaseSelector, predictDisease } from '../../features/User/DiseaseSlice';
+import { DiseaseSelector, predictDisease } from '../../../components/features/User/DiseaseSlice';
 
 const Doctors = () => {
 

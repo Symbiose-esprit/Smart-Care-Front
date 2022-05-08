@@ -42,7 +42,7 @@ import Navbar from "../components/Client/_App/Navbar";
 import TopHeader from "../components/Client/_App/TopHeader";
 //////////////////////////////
 // redux store import
-import store from "./features/store";
+import store from "../components/features/store";
 import { TransactionProvider } from "../../context/TransactionContext";
 
 const MyApp = ({ Component, pageProps }) => {
