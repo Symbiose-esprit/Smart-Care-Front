@@ -12,7 +12,7 @@ export default function Doctor() {
           className="link"
           activeClassName="active"
         >
-          <button className="doctorAddButton">Create</button>
+          <button  className="doctorAddButton">Create</button>
         </Link>
       </div>
 

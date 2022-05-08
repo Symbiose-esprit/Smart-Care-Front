@@ -1,8 +1,10 @@
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "../../../utils/ActiveLink";
 import { doctorRows } from "../../../dummyData";
+import { useDispatch } from "react-redux";
+import { ListDoctors } from "../../../components/features/User/AdminSlice";
 
 export default function DoctorList() {
   const [data, setData] = useState(doctorRows);
@@ -10,7 +12,13 @@ export default function DoctorList() {
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    
+      dispatch(ListDoctors());
+    
+  });
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     {

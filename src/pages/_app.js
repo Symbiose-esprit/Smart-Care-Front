@@ -69,21 +69,23 @@ const MyApp = ({ Component, pageProps }) => {
   }, [])
   return (
 
-    // <>
-    //     {admin ?
-    //         <>
-    //             {/* presistant component between page ( admin ) */}
-    //             <Topbar />
-    //             <div className="container" id="admin">
-    //                 <Sidebar />
+    <>
+        {admin ?
+            <>
+                {/* presistant component between page ( admin ) */}
+                <Provider store={store}>
+                <Topbar />
+                <div className="container" id="admin">
+                    <Sidebar />
 
-    //                 {/* component replaced by each page on render  */}
-    //                 <Component {...pageProps} />
+                    {/* component replaced by each page on render  */}
+                    <Component {...pageProps} />
 
-    //             </div>
-    //         </>
+                </div>
+                </Provider>
+            </>
 
-    //         :
+            :
     <>
       <Provider store={store}>
         <Layout>
@@ -101,9 +103,9 @@ const MyApp = ({ Component, pageProps }) => {
         </Layout>
       </Provider>
     </>
-    //     }
+        }
 
-    // </>
+    </>
   )
 }
 

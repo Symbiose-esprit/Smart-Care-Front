@@ -63,7 +63,7 @@ export default function Sidebar() {
           <h3 className="sidebarTitle">Quick Menu</h3>
           <ul className="sidebarList">
             <Link
-              href="/Admin/user/User"
+              href="/Admin/userList/UserList"
               className="link"
               activeClassName="active"
             >
