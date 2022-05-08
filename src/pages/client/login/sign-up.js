@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import PageBanner from '../../../components/Client/Common/PageBanner';
-import { clearState, signupDoctor, signupPatient, userSelector } from '../../features/User/UserSlice';
+import { clearState, signupDoctor, signupPatient, userSelector } from '../../../components/features/User/UserSlice';
 
 const SignUp = () => {
 
