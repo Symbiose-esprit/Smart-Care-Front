@@ -1,4 +1,3 @@
-export const data = [
     { value: "itching", label: "Itching" },
     { value: "skin_rash", label: "Skin rash" },
     { value: "nodal_skin_eruptions", label: "Nodal skin eruptions" },

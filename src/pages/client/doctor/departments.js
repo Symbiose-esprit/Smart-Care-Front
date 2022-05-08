@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import ReactSelect, { components } from "react-select";
 import PageBanner from '../../../components/Client/Common/PageBanner';
 import { predictDisease } from '../../../components/features/User/DiseaseSlice';
-import { data } from './data';
+import { data } from '../../../data';
 
 const Option = (props) => {
     return (
