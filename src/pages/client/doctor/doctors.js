@@ -17,7 +17,7 @@ const Doctors = () => {
     // push data on submit
     const onSubmit = (data) => {
         data = {
-            symptoms: "acidity"
+            "symptoms": "acidity"
         }
         console.log(data);
         dispatch(predictDisease(data));

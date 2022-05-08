@@ -74,7 +74,7 @@ export default function Sidebar() {
             </Link>
 
             <Link
-              href="/Admin/doctor/Doctor"
+              href="/Admin/doctorList/DoctorList"
               className="link"
               activeClassName="active"
             >

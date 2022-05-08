@@ -55,7 +55,7 @@ export const CreateDoctor = createAsyncThunk(
 );
 export const ListDoctors = createAsyncThunk(
   "user/userList",
-  async ( thunkAPI) => {
+  async (thunkAPI) => {
     try {
       const response = await fetch("http://127.0.0.1:8000/api/v1/doctors", {
         method: "GET",
