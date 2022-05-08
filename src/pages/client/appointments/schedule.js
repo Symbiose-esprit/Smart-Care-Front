@@ -49,13 +49,7 @@ function Schedule() {
 
   return (
     <>
-      <PageBanner
-        pageTitle="Schedule"
-        homePageUrl="/"
-        homePageText="Home"
-        activePageText="Schedule"
-        bgImage="page-title-one"
-      />
+      
 
       <div className={styles.container}>
         <main className={styles.main}>
