@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-export const signupUser = createAsyncThunk(
+export const signupDoctor = createAsyncThunk(
   'users/signupUser',
-  async ({ name, lastname, email, password }, thunkAPI) => {
+  async ({ name, lastname,login, email, password, address,role,sex,dateofbirth,telephone,specialty,office_address,office_number,doctorate,consult_price,coords }, thunkAPI) => {
     try {
       const response = await fetch(
         'http://localhost:8000/signup',
@@ -15,8 +15,67 @@ export const signupUser = createAsyncThunk(
           body: JSON.stringify({
             name,
             lastname,
+            login,
             email,
             password,
+            address,
+            role,
+            sex,
+            dateofbirth,
+            telephone,
+            specialty,
+            office_address,
+            office_number,
+            doctorate,
+            consult_price,
+            coords,
+          }),
+        }
+      );
+      let data = await response.json();
+      console.log('data', data);
+
+      if (response.status === 200) {
+        localStorage.setItem('token', data.token);
+        return { ...data, username: name, email: email };
+      } else {
+        return thunkAPI.rejectWithValue(data);
+      }
+    } catch (e) {
+      console.log('Error', e.response.data);
+      return thunkAPI.rejectWithValue(e.response.data);
+    }
+  }
+);
+export const signupPatient = createAsyncThunk(
+  'users/signupUser',
+  async ({ name, lastname,login, email, password, adresse,role,sex,dateofbirth,telephone,blood_type,addictions,height,weight,payment_method,insurance, }, thunkAPI) => {
+    try {
+      const response = await fetch(
+        'http://localhost:8000/signupatient',
+        {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            lastname,
+            login,
+            email,
+            password,
+            adresse,
+            role,
+            sex,
+            dateofbirth,
+            telephone,
+            blood_type,
+            addictions,
+            height,
+            weight,
+            payment_method,
+            insurance,
           }),
         }
       );
@@ -135,17 +194,24 @@ export const userSlice = createSlice({
     // [getInitialState.fulfilled]: {
 
     // },
-    [signupUser.fulfilled]: (state, { payload }) => {
+    [signupDoctor.fulfilled]: (state, { payload }) => {
       console.log('payload', payload);
       state.isFetching = false;
       state.isSuccess = true;
       state.username = payload.username;
       state.email = payload.email;
     },
-    [signupUser.pending]: (state) => {
+    [signupPatient.fulfilled]: (state, { payload }) => {
+      console.log('payload', payload);
+      state.isFetching = false;
+      state.isSuccess = true;
+      state.username = payload.username;
+      state.email = payload.email;
+    },
+    [signupDoctor.pending]: (state) => {
       state.isFetching = true;
     },
-    [signupUser.rejected]: (state, { payload }) => {
+    [signupDoctor.rejected]: (state, { payload }) => {
       state.isFetching = false;
       state.isError = true;
       //state.errorMessage = payload.message;

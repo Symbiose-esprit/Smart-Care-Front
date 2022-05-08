@@ -4,9 +4,9 @@ import { VideoSDKMeeting } from "@videosdk.live/rtc-js-prebuilt";
 
 const ServiceDetails = () => {
     useEffect(() => {
-        const apiKey = "ecbcbaaa-7f04-4496-8c90-eec0ef663b62";
+        const apiKey ="ecbcbaaa-7f04-4496-8c90-eec0ef663b62";
         const meetingId = "milkyway";
-        const name = "Demo User";
+        const name = " User";
     
         const config = {
           name: name,
@@ -14,7 +14,7 @@ const ServiceDetails = () => {
           apiKey: apiKey,
     
           containerId: null,
-          redirectOnLeave: "http://localhost:3000/",
+          redirectOnLeave: "http://localhost:3000/client/blockchain/ETHswap",
     
           micEnabled: true,
           webcamEnabled: true,
