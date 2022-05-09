@@ -3,6 +3,9 @@ import ReactSelect, { components } from "react-select";
 import PageBanner from '../../../components/Client/Common/PageBanner';
 import { predictDisease } from '../../../components/features/User/DiseaseSlice';
 import { data } from '../../../data';
+import ProgressBar from 'react-bootstrap/ProgressBar';
+
+
 
 const Option = (props) => {
     return (
@@ -39,7 +42,7 @@ const Departments = () => {
         console.log("symptoms : " + symptoms)
     };
 
-
+    // 
     // redux actions
     const dispatch = useDispatch();
     console.log("symptoms : " + symptoms)
@@ -54,7 +57,7 @@ const Departments = () => {
 
     return (
         <>
-            <PageBanner
+            {/*<PageBanner
                 pageTitle="Departments"
                 homePageUrl="/"
                 homePageText="Home"
@@ -101,8 +104,9 @@ const Departments = () => {
                         </button>
                     </div>
                 </div>
-            </div>
+             </div>*/}
 
+            
 
 
             {/* <div className="departments-area pt-100 pb-70">
@@ -183,7 +187,90 @@ const Departments = () => {
                 </div>
             </div> */}
 
-        </>
+
+
+        
+        <>
+        <PageBanner
+            pageTitle="Symptoms Prediction"
+            homePageUrl="/"
+            homePageText="Home"
+            activePageText="Symptoms Prediction"
+            bgImage="page-title-one"
+        />
+
+        <div className="signup-area ptb-100">
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-lg-6 pl-0">
+                        <div className="login-left">
+                            <img src="" />
+                        </div>
+                    </div>
+
+                    <div className="col-lg-6 ptb-100">
+                        <div className="signup-item">
+                            <div className="signup-head">
+                            <h2>Select your symptoms</h2>
+                            <p>Select what symptoms you may have right now from our list and we will provide an estimate of what illness you may have  </p>
+                            </div>
+                            <div className="signup-form">
+                            <span
+                                classame="d-inline-block"
+                                data-toggle="popover"
+                                data-trigger="focus"
+                                data-content="Select Symptoms"
+                            >
+                                <ReactSelect
+                                    options={data}
+                                    isMulti
+                                    closeMenuOnSelect={false}
+                                    hideSelectedOptions={false}
+                                    components={{
+                                        Option
+                                    }}
+                                    onChange={handleInputChange}
+                                    onInputChange={handleChange()}
+                                    // onMenuClose={predictDisease}
+                                    allowSelectAll={true}
+                                    value={optionSelected}
+                                />
+                            </span>
+                                
+
+                                            <div className="col-lg-12">
+                                                <div className="form-group">
+                                                    <div className="">
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="col-lg-12">
+                                                <div className="text-center">
+                                                <button onClick={predict} type="button" className="btn btn-primary">
+                                                    Predict
+                                                </button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div className="col-lg-12">
+                                                <div className="form-group">
+                                                    <div>
+                                                        <h6> Your Disease may be : </h6>
+                                                         <ProgressBar  animated  now={40} />
+                                                    </div>
+                                                </div>    
+                                            </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </>
+    </>   
     )
 }
 

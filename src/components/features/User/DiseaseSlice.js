@@ -5,7 +5,7 @@ export const predictDisease = createAsyncThunk(
     async ({ symptoms }, thunkAPI) => {
         try {
             const response = await fetch(
-                'http://127.0.0.1:9000/api',
+                'http://127.0.0.1:8000/api',
                 {
                     method: 'POST',
                     headers: {
