@@ -8,7 +8,7 @@ const NewsletterForm = () => {
                     <div className="col-lg-6">
                         <div className="newsletter-item">
                             <h2>Join Our Newsletter</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                            <p>Enter your email and get weekly updates to stay healthy!</p>
                         </div>
                     </div>
                     <div className="col-lg-6">

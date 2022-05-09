@@ -40,8 +40,8 @@ const HeroSlider = () => {
                                         <img src="/images/home-one/home-slider1.png" alt="Shape" />
                                     </div>
 
-                                    <h1>Exceptional Health Care for Woman</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                                    <h1>We Provide You With The Best Doctors In The Area</h1>
+                                    <p>In SmartCare we have partnered up with the best doctors  in all regions because we care about our patients.</p>
 
                                     <div className="common-btn">
                                         <Link href="/client/appointments/appointment">
@@ -65,8 +65,8 @@ const HeroSlider = () => {
                                     <div className="slider-shape-two">
                                         <img src="/images/home-one/home-slider2.png" alt="Shape" />
                                     </div>
-                                    <h1>Caring Health is Important Than All</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                                    <h1>We Offer You An Amazing Experience With A Constant Followup</h1>
+                                    <p>Because we believe in Customers centricity, we have made a clever followup system detecting your satisfaction.</p>
 
                                     <div className="common-btn">
                                         <Link href="/client/appointments/appointment">
@@ -90,8 +90,8 @@ const HeroSlider = () => {
                                     <div className="slider-shape-three">
                                         <img src="/images/home-one/home-slider3.png" alt="Shape" />
                                     </div>
-                                    <h1>We Offer Highly Treatments</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                                    <h1>We Offer A Smart System For Detecting Diseases</h1>
+                                    <p>Without waiting for your appointment you can have an idea about your disease through a smart system developed by our experts.</p>
 
                                     <div className="common-btn">
                                         <Link href="/client/appointments/appointment">

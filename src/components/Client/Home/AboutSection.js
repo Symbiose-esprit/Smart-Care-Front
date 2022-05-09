@@ -17,8 +17,8 @@ const AboutSection = () => {
                     <div className="col-lg-6">
                         <div className="about-item about-right">
                             <img src="/images/about-shape1.png" alt="About" />
-                            <h2>About Our Hospital</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+                            <h2>About Our Website</h2>
+                            <p>In SmartCare you will be matched with one of the best doctors in your area based on your symptoms while ensuring a compatibility between doctor's speciality and your disease. </p>
                             
                             <ul>
                                 <li>
@@ -27,11 +27,11 @@ const AboutSection = () => {
                                 </li>
                                 <li>
                                     <i className="icofont-check-circled"></i>
-                                    Choose Service
+                                    Choose Appointment
                                 </li>
                                 <li>
                                     <i className="icofont-check-circled"></i>
-                                    Send Messege
+                                    Fill the needed information
                                 </li>
                             </ul>
 

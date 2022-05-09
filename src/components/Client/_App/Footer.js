@@ -15,17 +15,17 @@ const Footer = () => {
                                     <ul>
                                         <li>
                                             <i className="icofont-ui-message"></i>
-                                            <a href="mailto:info@disin.com">info@disin.com</a>
-                                            <a href="mailto:hello@disin.com">hello@disin.com</a>
+                                            <a href="mailto:info@disin.com">info@smartcare.com</a>
+                                            <a href="mailto:hello@disin.com">smartcare@gmail.com</a>
                                         </li>
                                         <li>
                                             <i className="icofont-stock-mobile"></i>
-                                            <a href="tel:+07554332322">Call: +07 554 332 322</a>
-                                            <a href="tel:+236256256365">Call: +236 256 256 365</a>
+                                            <a href="tel:+07554332322">Call: +216 22 222 222</a>
+                                            <a href="tel:+236256256365">Call: +216 23 232 232</a>
                                         </li>
                                         <li>
                                             <i className="icofont-location-pin"></i>
-                                            210-27 Quadra, Market Street, Victoria Canada
+                                            Ariana,Tunis
                                         </li>
                                     </ul>
                                 </div>
