@@ -25,7 +25,7 @@ const Option = (props) => {
 const Departments = () => {
 
     let optionSelected = [];
-    let symptoms = []
+    let symptoms = [];
 
     const handleChange = (selected) => {
         optionSelected = selected
@@ -36,10 +36,12 @@ const Departments = () => {
         console.log("this is optionSelected : " + JSON.stringify(optionSelected))
         Object.keys(optionSelected).map(key => {
             console.log(optionSelected[key].value)
+            const t = JSON.stringify(optionSelected[key].value)
+            console.log(t)
             symptoms = [...symptoms, optionSelected[key].value];
 
         })
-        console.log("symptoms : " + symptoms)
+        console.log("symptoms : " + JSON.stringify(symptoms))
     };
 
     // 
@@ -51,7 +53,7 @@ const Departments = () => {
         data = {
             symptoms: symptoms.toString()
         }
-        console.log(data);
+        console.log("this is data : " + data);
         dispatch(predictDisease(data));
     }
 
