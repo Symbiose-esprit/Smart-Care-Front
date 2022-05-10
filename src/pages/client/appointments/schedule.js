@@ -1,8 +1,7 @@
 import dynamic from "next/dynamic";
 import "smart-webcomponents-react/source/styles/smart.default.css";
 import styles from "../../../../public/css/client/schedule.module.css";
-import PageBanner from '../../../components/Client/Common/PageBanner';
-
+import PageBanner from "../../../components/Client/Common/PageBanner";
 
 //Dynamically import the Smart.Scheduler component
 const Scheduler = dynamic(() => import("smart-webcomponents-react/scheduler"), {
@@ -36,7 +35,7 @@ function Schedule() {
     ],
     currentTimeIndicator = true,
     shadeUntilCurrentTime = true,
-    view = "day",
+    view = "month",
     views = [
       "day",
       "week",
@@ -49,14 +48,11 @@ function Schedule() {
 
   return (
     <>
-      
-
       <div className={styles.container}>
         <main className={styles.main}>
-          <p></p>
-        <div className="appointment-item appointment-item-two">
-                    <h2>Dr. Babatunde's schedule :</h2>
-                </div>
+          <div className="appointment-item appointment-item-two">
+            <h2>Dr. Babatunde's schedule :</h2>
+          </div>
           <Scheduler
             className={styles.scheduler}
             id="scheduler"
