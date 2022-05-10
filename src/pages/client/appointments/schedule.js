@@ -53,6 +53,10 @@ function Schedule() {
 
       <div className={styles.container}>
         <main className={styles.main}>
+          <p></p>
+        <div className="appointment-item appointment-item-two">
+                    <h2>Dr. Babatunde's schedule :</h2>
+                </div>
           <Scheduler
             className={styles.scheduler}
             id="scheduler"
