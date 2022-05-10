@@ -1,20 +1,41 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import PageBanner from '../../../components/Client/Common/PageBanner';
 import Footer from '../../../components/Client/_App/Footer';
 
+
+
+
+
+
 const Blog = () => {
+
+
+    const disease = "Acne"
+    const med_article = () => {
+        const data = import(`../../../scraping/${disease}.json`).then((response) => {
+            console.log(response.content)
+        })
+
+
+    }
+
+    useEffect(() => {
+        med_article()
+    }, []);
+
+
     return (
         <>
-         
-            
-            <PageBanner 
-                pageTitle="Blog" 
-                homePageUrl="/" 
-                homePageText="Home" 
-                activePageText="Blog" 
-                bgImage="page-title-four" 
-            /> 
+
+
+            <PageBanner
+                pageTitle="Blog"
+                homePageUrl="/"
+                homePageText="Home"
+                activePageText="Blog"
+                bgImage="page-title-four"
+            />
 
             <div className="blog-area-two pt-100 pb-70">
                 <div className="container">
@@ -336,7 +357,7 @@ const Blog = () => {
                     </div>
                 </div>
             </div>
- 
+
             <Footer />
         </>
     )

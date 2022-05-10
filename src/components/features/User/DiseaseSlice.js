@@ -18,7 +18,7 @@ export const predictDisease = createAsyncThunk(
                 }
             );
             let data = await response.json();
-            console.log('data', data, response.status);
+            console.log('Disease is : ', data, response.status);
 
             if (response.status === 200) {
                 return { ...data };
