@@ -4,6 +4,9 @@ import PageBanner from '../../../components/Client/Common/PageBanner';
 import { predictDisease } from '../../../components/features/User/DiseaseSlice';
 import { data } from '../../../data';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import { useEffect, useState } from 'react';
+import { ListDoctors } from '../../../components/features/User/AdminSlice';
+import Link from 'next/link';
 
 
 
@@ -22,7 +25,14 @@ const Option = (props) => {
     );
 };
 
+
 const Departments = () => {
+
+
+    const [showDisease, setshowDisease] = useState(false);
+    const DiseaseHandler = () => {
+        setshowDisease(true);
+    }
 
     let optionSelected = [];
     let symptoms = [];
@@ -44,235 +54,179 @@ const Departments = () => {
         console.log("symptoms : " + JSON.stringify(symptoms))
     };
 
+    let disease;
+    const [scraping, setscraping] = useState()
+    const [scrape, setscrape] = useState()
+
+
+    const med_article = () => {
+        const data = import(`../../../scraping/${disease}.json`).then((response) => {
+            console.log(response.content)
+            setscrape(response.content)
+        })
+    }
+
+
+    //doctors
+    const [doctors, setDoctors] = useState([])
+
+    const getDoctors = () => {
+        dispatch(ListDoctors()).then((response) => {
+            console.log(response.payload.data.doctor)
+            // doctors = response.payload.data.doctor
+            setDoctors(response.payload.data.doctor);
+        });
+
+    }
+
+
     // 
     // redux actions
     const dispatch = useDispatch();
     console.log("symptoms : " + symptoms)
-    const predict = (data) => {
+    const predict = async (data) => {
         // JSON.stringify(symptoms)
         data = {
             symptoms: symptoms.toString()
         }
         console.log("this is data : " + data);
-        dispatch(predictDisease(data));
+        dispatch(predictDisease(data)).then((response) => {
+            disease = response.payload.diseasename;
+            setscraping(response.payload.diseasename)
+            console.log("disease for scraping : " + disease)
+            med_article();
+            getDoctors()
+        })
+        DiseaseHandler()
+
+
     }
+
+
 
     return (
         <>
-            {/*<PageBanner
-                pageTitle="Departments"
-                homePageUrl="/"
-                homePageText="Home"
-                activePageText="Departments"
-                bgImage="page-title-one"
-            />
+            <>
+                <PageBanner
+                    pageTitle="Symptoms Prediction"
+                    homePageUrl="/"
+                    homePageText="Home"
+                    activePageText="Symptoms Prediction"
+                    bgImage="page-title-one"
+                />
 
-
-
-            <div className="departments-area pt-100 pb-70">
-                <div className="container">
-                    <div className="col-lg-6">
-                        <div className="about-item about-right">
-                            <img src="/images/about-shape1.png" alt="About" />
-                            <h2>Select your symptoms</h2>
-                            <p>Select what symptoms you may have right now from our list and we will provide an estimate of what illness you may have  </p>
-
-                        </div>
-                    </div>
-                    <span
-                        classname="d-inline-block"
-                        data-toggle="popover"
-                        data-trigger="focus"
-                        data-content="Select Symptoms"
-                    >
-                        <ReactSelect
-                            options={data}
-                            isMulti
-                            closeMenuOnSelect={false}
-                            hideSelectedOptions={false}
-                            components={{
-                                Option
-                            }}
-                            onChange={handleInputChange}
-                            onInputChange={handleChange()}
-                            // onMenuClose={predictDisease}
-                            allowSelectAll={true}
-                            value={optionSelected}
-                        />
-                    </span>
-                    <div classname='center'>
-                        <button onClick={predict} type="button" className="btn btn-primary">
-                            Predict
-                        </button>
-                    </div>
-                </div>
-             </div>*/}
-
-            
-
-
-            {/* <div className="departments-area pt-100 pb-70">
-                <div className="container">
-                    <div className="row justify-content-center">
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="department-item">
-                                <i className="icofont-tooth"></i>
-                                <h3>Dental Care</h3>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium eaque omnis corporis, animi aspernatur tempora.</p>
+                <div className="signup-area ptb-100">
+                    <div className="container-fluid">
+                        <div className="row">
+                            <div className="col-lg-6 pl-0">
+                                <div className="login-left">
+                                    <img src="" />
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="department-item">
-                                <i className="icofont-baby"></i>
-                                <h3>Baby Care</h3>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium eaque omnis corporis, animi aspernatur tempora.</p>
-                            </div>
-                        </div>
-
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="department-item">
-                                <i className="icofont-laboratory"></i>
-                                <h3>Laboratory</h3>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium eaque omnis corporis, animi aspernatur tempora.</p>
-                            </div>
-                        </div>
-
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="department-item">
-                                <i className="icofont-icu"></i>
-                                <h3>ICU</h3>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium eaque omnis corporis, animi aspernatur tempora.</p>
-                            </div>
-                        </div>
-
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="department-item">
-                                <i className="icofont-dna-alt-2"></i>
-                                <h3>DNA Test</h3>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium eaque omnis corporis, animi aspernatur tempora.</p>
-                            </div>
-                        </div>
-
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="department-item">
-                                <i className="icofont-surgeon"></i>
-                                <h3>Surgeon</h3>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium eaque omnis corporis, animi aspernatur tempora.</p>
-                            </div>
-                        </div>
-
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="department-item">
-                                <i className="icofont-xray"></i>
-                                <h3>X-ray</h3>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium eaque omnis corporis, animi aspernatur tempora.</p>
-                            </div>
-                        </div>
-
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="department-item">
-                                <i className="icofont-blood-test"></i>
-                                <h3>Blood Test</h3>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium eaque omnis corporis, animi aspernatur tempora.</p>
-                            </div>
-                        </div>
-
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="department-item">
-                                <i className="icofont-ambulance-crescent"></i>
-                                <h3>Ambulance Service</h3>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium eaque omnis corporis, animi aspernatur tempora.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
+                            <div className="col-lg-6 ptb-100">
+                                <div className="signup-item">
+                                    <div className="signup-head">
+                                        <h2>Select your symptoms</h2>
+                                        <p>Select what symptoms you may have right now from our list and we will provide an estimate of what illness you may have  </p>
+                                    </div>
+                                    <div className="signup-form">
+                                        <span
+                                            classame="d-inline-block"
+                                            data-toggle="popover"
+                                            data-trigger="focus"
+                                            data-content="Select Symptoms"
+                                        >
+                                            <ReactSelect
+                                                options={data}
+                                                isMulti
+                                                closeMenuOnSelect={false}
+                                                hideSelectedOptions={false}
+                                                components={{
+                                                    Option
+                                                }}
+                                                onChange={handleInputChange}
+                                                onInputChange={handleChange()}
+                                                // onMenuClose={predictDisease}
+                                                allowSelectAll={true}
+                                                value={optionSelected}
+                                            />
+                                        </span>
 
 
+                                        <div className="col-lg-12">
+                                            <div className="form-group">
+                                                <div className="">
 
-        
-        <>
-        <PageBanner
-            pageTitle="Symptoms Prediction"
-            homePageUrl="/"
-            homePageText="Home"
-            activePageText="Symptoms Prediction"
-            bgImage="page-title-one"
-        />
-
-        <div className="signup-area ptb-100">
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-lg-6 pl-0">
-                        <div className="login-left">
-                            <img src="" />
-                        </div>
-                    </div>
-
-                    <div className="col-lg-6 ptb-100">
-                        <div className="signup-item">
-                            <div className="signup-head">
-                            <h2>Select your symptoms</h2>
-                            <p>Select what symptoms you may have right now from our list and we will provide an estimate of what illness you may have  </p>
-                            </div>
-                            <div className="signup-form">
-                            <span
-                                classame="d-inline-block"
-                                data-toggle="popover"
-                                data-trigger="focus"
-                                data-content="Select Symptoms"
-                            >
-                                <ReactSelect
-                                    options={data}
-                                    isMulti
-                                    closeMenuOnSelect={false}
-                                    hideSelectedOptions={false}
-                                    components={{
-                                        Option
-                                    }}
-                                    onChange={handleInputChange}
-                                    onInputChange={handleChange()}
-                                    // onMenuClose={predictDisease}
-                                    allowSelectAll={true}
-                                    value={optionSelected}
-                                />
-                            </span>
-                                
-
-                                            <div className="col-lg-12">
-                                                <div className="form-group">
-                                                    <div className="">
-                                                        
-                                                    </div>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <div className="col-lg-12">
-                                                <div className="text-center">
+
+
+                                        <div className="col-lg-6 ">
+                                            <div className="text-center ">
                                                 <button onClick={predict} type="button" className="btn btn-primary">
                                                     Predict
                                                 </button>
-                                                </div>
                                             </div>
-                                            
+                                        </div>
+
+
+                                        {showDisease ?
                                             <div className="col-lg-12">
                                                 <div className="form-group">
                                                     <div>
-                                                        <h6> Your Disease may be : </h6>
-                                                         <ProgressBar  animated  now={40} />
+                                                        <h6> Your Disease may be : {scraping}   </h6>
+                                                        <ProgressBar animated now={40} />
                                                     </div>
-                                                </div>    
+                                                </div>
                                             </div>
-                                
+                                            : <div></div>}
+
+                                        {showDisease ?
+                                            <div className="col-lg-12">
+                                                <div className="form-group">
+                                                    <div>
+                                                        <h6>  {scrape}  </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            : <div></div>}
+
+
+
+                                        {doctors.map(doctor =>
+                                            <div className="col-sm-6 col-lg-4">
+                                                <div className="doctor-item">
+                                                    <div className="doctor-top">
+                                                        <img src="/images/doctors/doctor1.jpg" alt="Doctor" />
+
+                                                        <Link href="/appointment">
+                                                            <a>Get Appointment</a>
+                                                        </Link>
+                                                    </div>
+                                                    <div className="doctor-bottom">
+                                                        <h3>
+                                                            <Link href="/doctor-details">
+                                                                <a>Dr. {doctor.lastname}</a>
+                                                            </Link>
+                                                        </h3>
+                                                        <span>Neurosurgeon</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                        }
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </>
-    </>   
+            </>
+        </>
     )
 }
 
