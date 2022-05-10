@@ -9,7 +9,7 @@ const ContactInfo = () => {
                         <div className="location-item">
                             <i className="icofont-location-pin"></i>
                             <h3>Location</h3>
-                            <p>2108-267 Road Quadra, Toronto, <br /> Victiria Canada</p>
+                            <p>Ariana <br />Tunis</p>
                         </div>
                     </div>
 
@@ -17,8 +17,8 @@ const ContactInfo = () => {
                         <div className="location-item">
                             <i className="icofont-ui-message"></i>
                             <h3>Email</h3>
-                            <p>hello@disin.com</p>
-                            <p>emailexample@name.com</p>
+                            <p>contact@smartcare.com</p>
+                            <p>smartcare@gmail.com</p>
                         </div>
                     </div>
 
@@ -26,8 +26,8 @@ const ContactInfo = () => {
                         <div className="location-item">
                             <i className="icofont-ui-call"></i>
                             <h3>Phone</h3>
-                            <p>+07 5554 3332 322</p>
-                            <p>+07 5554 3332 322</p>
+                            <p>+216 22 222 222</p>
+                            <p>+216 22 222 222</p>
                         </div>
                     </div>
                 </div>
