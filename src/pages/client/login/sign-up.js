@@ -25,7 +25,11 @@ const SignUp = () => {
     const [password, setPassword] = useState("");
     const [user, setUser] = useState()
 
-
+    const [file, setFile] = useState();
+    const saveFile = (e) => {
+      setFile(e.target.files[0].name);
+      
+    };
 
   //form
   const [showDoctor,setshowDoctor]= useState(false);
@@ -45,7 +49,7 @@ const SignUp = () => {
   // push data on submit
   const onSubmit = (data) => {
     if( showDoctor==true  & showPatient==false ){
-       console.log(data);
+       console.log("hedhi data ",data.img[0].name);
        dispatch(signupDoctor(data));
     }else{
       console.log(data);
@@ -183,6 +187,7 @@ const SignUp = () => {
                           <input type="date" name='dateofbirth' className="form-control" placeholder="Date of birth" {...register("dateofbirth")} />
                         </div>
                       </div>
+                      
                       {/*<div className="col-lg-6">
                         <div className="form-group">
                           <input type="file" name='photo' className="form-control" placeholder="Photo" {...register("photo")} />
@@ -325,7 +330,11 @@ const SignUp = () => {
                           </div>
                         </div>
                       </div> */}
-
+                      <div className="col-lg-6">
+                        <div className="form-group">
+                          <input type="file" name='img' className="form-control"   {...register("img")} />
+                        </div>
+                      </div>
                       <div className="col-lg-12">
                         <div className="text-center">
                           <button type="submit" className="btn signup-btn">Sign Up</button>
