@@ -39,7 +39,7 @@ const Doctors = () => {
     // push data on submit
     const onSubmit = (data) => {
         data = {
-            "symptoms": "acidity"
+            "symptoms[]": ["acidity"]
         }
         console.log(data);
         dispatch(predictDisease(data));
@@ -101,7 +101,7 @@ const Doctors = () => {
                                 <div className="doctor-top">
                                     <img src="/images/doctors/doctor1.jpg" alt="Doctor" />
 
-                                    <Link href="/appointment">
+                                    <Link href="/client/appointments/schedule">
                                         <a>Get Appointment</a>
                                     </Link>
                                 </div>

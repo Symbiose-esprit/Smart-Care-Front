@@ -3,7 +3,7 @@ import React from 'react';
 const AppointmentForm = () => {
     return (
         <div className="appointment-area ptb-100 plr-15">
-            <div className="container-fluid p-0">
+            <div className="p-0 container-fluid">
                 <div className="appointment-item">
                     <h2>Book your appointment</h2>
                     <span>We will confirm your appointment within 2 hours</span>
