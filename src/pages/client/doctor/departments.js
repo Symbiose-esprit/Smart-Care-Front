@@ -118,7 +118,7 @@ const Departments = () => {
                 <div className="signup-area ptb-100">
                     <div className="container-fluid">
                         <div className="row">
-                            <div className="col-lg-6 pl-0">
+                            <div className="pl-0 col-lg-6">
                                 <div className="login-left">
                                     <img src="" />
                                 </div>
@@ -164,7 +164,7 @@ const Departments = () => {
 
 
 
-                                        <div className="col-lg-6 ">
+                                        <div className="col-lg-1 ">
                                             <div className="text-center ">
                                                 <button onClick={predict} type="button" className="btn btn-primary">
                                                     Predict
@@ -174,7 +174,7 @@ const Departments = () => {
 
 
                                         {showDisease ?
-                                            <div className="col-lg-12">
+                                            <div className="mt-4 col-lg-12">
                                                 <div className="form-group">
                                                     <div>
                                                         <h6> Your Disease may be : {scraping}   </h6>
