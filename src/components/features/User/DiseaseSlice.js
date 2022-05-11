@@ -13,7 +13,7 @@ export const predictDisease = createAsyncThunk(
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        "symptoms[]" : [symptoms]
+                        "symptoms[]" : symptoms
                     }),
                 }
             );

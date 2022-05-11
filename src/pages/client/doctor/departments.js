@@ -30,25 +30,28 @@ const Departments = () => {
     };
 
     let optionSelected = [];
-    let symptoms = [];
+    let symptoms = null;
 
     const handleChange = (selected) => {
         optionSelected = selected;
     };
     const handleInputChange = (selected) => {
         optionSelected = selected;
+        symptoms = []
         console.log("this is optionSelected : " + JSON.stringify(optionSelected));
         Object.keys(optionSelected).map((key) => {
-            console.log(optionSelected[key].value);
-            const t = JSON.stringify(optionSelected[key].value);
+            // console.log(optionSelected[key].value);
+            const t = optionSelected[key].value;
             console.log(t);
-            symptoms = [...symptoms, optionSelected[key].value];
+            symptoms = [...symptoms, t];
+            // symptoms = [...symptoms, optionSelected[key].value];
         });
         console.log("symptoms : " + JSON.stringify(symptoms));
     };
 
     let disease;
     const [scraping, setscraping] = useState();
+    const [percent, setpercent] = useState();
     const [scrape, setscrape] = useState();
 
     const med_article = () => {
@@ -76,14 +79,16 @@ const Departments = () => {
     const dispatch = useDispatch();
     console.log("symptoms : " + symptoms);
     const predict = async (data) => {
-        // JSON.stringify(symptoms)
+
         data = {
-            symptoms: symptoms.toString(),
-        };
-        console.log("this is data : " + data);
+            "symptoms": symptoms,
+        }
+
+        console.log("this is data : " + JSON.stringify(data));
         dispatch(predictDisease(data)).then((response) => {
             disease = response.payload.diseasename;
             setscraping(response.payload.diseasename);
+            setpercent(response.payload.confidence);
             console.log("disease for scraping : " + disease);
             med_article();
             getDoctors();
@@ -166,8 +171,9 @@ const Departments = () => {
                                             <div className="mt-4 col-lg-12">
                                                 <div className="form-group">
                                                     <div>
-                                                        <h6> Your Disease may be : {scraping} </h6>
-                                                        <ProgressBar animated now={40} />
+                                                        <h5> Your Disease may be : {scraping} </h5>
+                                                        <h6> Confidence : {percent} %</h6>
+                                                        <ProgressBar animated now={percent} />
                                                     </div>
                                                 </div>
                                             </div>
