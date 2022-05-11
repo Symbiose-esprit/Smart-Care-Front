@@ -196,32 +196,42 @@ const Departments = () => {
 
 
 
-                                        {doctors.map(doctor =>
-                                            <div className="col-sm-6 col-lg-4">
-                                                <div className="doctor-item">
-                                                    <div className="doctor-top">
-                                                        <img src="/images/doctors/doctor1.jpg" alt="Doctor" />
-
-                                                        <Link href="/appointment">
-                                                            <a>Get Appointment</a>
-                                                        </Link>
-                                                    </div>
-                                                    <div className="doctor-bottom">
-                                                        <h3>
-                                                            <Link href="/doctor-details">
-                                                                <a>Dr. {doctor.lastname}</a>
-                                                            </Link>
-                                                        </h3>
-                                                        <span>Neurosurgeon</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        )
-                                        }
+                                       
 
                                     </div>
                                 </div>
                             </div>
+
+                       
+                            
+                                  <div className="doctors-area doctors-area-two pt-100 pb-70">
+                                  <div className="container">
+                                    <div className="row justify-content-center">
+                                    
+                                      {doctors.map((doctor) => (
+                                        <div className="col-sm-6 col-lg-4">
+                                          <div className="doctor-item">
+                                            <div className="doctor-top">
+                                              <img src= {"/images/doctors/" + doctor.img }alt="Doctor" />
+                          
+                                              <Link href="/appointment">
+                                                <a>Get Appointment</a>
+                                              </Link>
+                                            </div>
+                                            <div className="doctor-bottom">
+                                              <h3>
+                                                <Link href="/doctor-details">
+                                                  <a>Dr. {doctor.lastname}</a>
+                                                </Link>
+                                              </h3>
+                                              <span>{doctor.specialty}</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </div>
                         </div>
                     </div>
                 </div>
