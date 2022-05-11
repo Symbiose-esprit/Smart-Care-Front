@@ -21,7 +21,7 @@ const OurExpertise = () => {
                                                 <a>Certified Doctors</a>
                                             </Link>
                                         </h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <p>We have the best doctors in the area.</p>
                                     </div>
                                 </div>
                                 <div className="col-sm-6 col-lg-6">
@@ -29,10 +29,10 @@ const OurExpertise = () => {
                                         <i className="icofont-stretcher"></i>
                                         <h3> 
                                             <Link href="/client/doctor/doctor-details">
-                                                <a>Emergency</a>
+                                                <a>Diseases education</a>
                                             </Link>
                                         </h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <p>You will get to know more about certain Diseases.</p>
                                     </div>
                                 </div>
                                 <div className="col-sm-6 col-lg-6">
@@ -40,10 +40,10 @@ const OurExpertise = () => {
                                         <i className="icofont-network"></i>
                                         <h3> 
                                             <Link href="/client/doctor/doctor-details">
-                                                <a>Teachnology</a>
+                                                <a>Video calls</a>
                                             </Link>
                                         </h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <p>In SmartCare you will be able to have virtual appointments with your doctor.</p>
                                     </div>
                                 </div>
                                 <div className="col-sm-6 col-lg-6">
@@ -51,10 +51,10 @@ const OurExpertise = () => {
                                         <i className="icofont-ambulance-cross"></i>
                                         <h3> 
                                             <Link href="/client/doctor/doctor-details">
-                                                <a>Ambulance</a>
+                                                <a>Crypto paiment and security</a>
                                             </Link>
                                         </h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <p>You can pay through cryptocurrency and your whole date will be secured through blockchain.</p>
                                     </div>
                                 </div>
                             </div>

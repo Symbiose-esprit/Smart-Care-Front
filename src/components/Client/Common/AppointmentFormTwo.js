@@ -85,7 +85,7 @@ const AppointmentFormTwo = () => {
                                     <i className="icofont-ui-call"></i>
                                 </div>
                                 <h3>Emergency Call</h3>
-                                <p>+07 554 332 322</p>
+                                <p>+216 21 234 567</p>
                             </div>
                         </div>
                     </div>
