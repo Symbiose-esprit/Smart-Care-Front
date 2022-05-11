@@ -31,8 +31,8 @@ const About = () => {
                         <div className="col-lg-6">
                             <div className="about-item about-right">
                                 <img src="/images/about-shape1.png" alt="About" />
-                                <h2>About Our Hospital</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+                                <h2>About Our Website</h2>
+                                <p>In SmartCare you will be matched with one of the best doctors in your area based on your symptoms while ensuring a compatibility between doctor's speciality and your disease.</p>
                                 <ul>
                                     <li>
                                         <i className="icofont-check-circled"></i>
@@ -40,11 +40,11 @@ const About = () => {
                                     </li>
                                     <li>
                                         <i className="icofont-check-circled"></i>
-                                        Choose Service
+                                        Choose Appointment
                                     </li>
                                     <li>
                                         <i className="icofont-check-circled"></i>
-                                        Send Messege
+                                        Fill the needed information
                                     </li>
                                 </ul>
                             </div>
@@ -59,8 +59,8 @@ const About = () => {
                         <div className="col-sm-6 col-lg-3">
                             <div className="counter-item">
                                 <i className="icofont-patient-bed"></i>
-                                <h3 className="counter">850</h3>
-                                <p>Patients Beds</p>
+                                <h3 className="counter">129</h3>
+                                <p>Country users</p>
                             </div>
                         </div>
                         <div className="col-sm-6 col-lg-3">
@@ -73,15 +73,15 @@ const About = () => {
                         <div className="col-sm-6 col-lg-3">
                             <div className="counter-item">
                                 <i className="icofont-doctor-alt"></i>
-                                <h3 className="counter">750</h3>
-                                <p>Doctors  & Nurse</p>
+                                <h3 className="counter">7500</h3>
+                                <p>Doctors</p>
                             </div>
                         </div>
                         <div className="col-sm-6 col-lg-3">
                             <div className="counter-item">
                                 <i className="icofont-badge"></i>
-                                <h3 className="counter">18</h3>
-                                <p>Year Experience</p>
+                                <h3 className="counter">5</h3>
+                                <p>Years Experience</p>
                             </div>
                         </div>
                     </div>
