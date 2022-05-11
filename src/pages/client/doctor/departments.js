@@ -179,6 +179,7 @@ const Departments = () => {
                       <div className="col-lg-12">
                         <div className="form-group">
                           <div className="signup-head">
+                              <h3>{scraping}</h3>
                             <p>{scrape}</p>
                           </div>
                         </div>
