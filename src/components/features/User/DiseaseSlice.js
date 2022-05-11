@@ -13,12 +13,12 @@ export const predictDisease = createAsyncThunk(
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        symptoms
+                        "symptoms[]" : [symptoms]
                     }),
                 }
             );
             let data = await response.json();
-            console.log('data', data, response.status);
+            console.log('Disease is : ', data, response.status);
 
             if (response.status === 200) {
                 return { ...data };

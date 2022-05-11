@@ -2,8 +2,10 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const signupDoctor = createAsyncThunk(
   'users/signupUser',
-  async ({ name, lastname,login, email, password, address,role,sex,dateofbirth,telephone,specialty,office_address,office_number,doctorate,consult_price,coords }, thunkAPI) => {
+  async ({ name, lastname,login,img,email, password, address,role,sex,dateofbirth,telephone,specialty,office_address,office_number,doctorate,consult_price,coords }, thunkAPI) => {
+    const imgTosend= img[0].name;
     try {
+      console.log("img",imgTosend);
       const response = await fetch(
         'http://localhost:8000/signup',
         {
@@ -17,6 +19,7 @@ export const signupDoctor = createAsyncThunk(
             lastname,
             login,
             email,
+            img:imgTosend,      
             password,
             address,
             role,
@@ -32,6 +35,7 @@ export const signupDoctor = createAsyncThunk(
           }),
         }
       );
+     
       let data = await response.json();
       console.log('data', data);
 
@@ -49,8 +53,10 @@ export const signupDoctor = createAsyncThunk(
 );
 export const signupPatient = createAsyncThunk(
   'users/signupUser',
-  async ({ name, lastname,login, email, password, adresse,role,sex,dateofbirth,telephone,blood_type,addictions,height,weight,payment_method,insurance, }, thunkAPI) => {
+  async ({ name, lastname,login,img, email, password, adresse,role,sex,dateofbirth,telephone,blood_type,addictions,height,weight,payment_method,insurance, }, thunkAPI) => {
+    const imgTosend= img[0].name;
     try {
+      console.log("img",imgTosend); 
       const response = await fetch(
         'http://localhost:8000/signupatient',
         {
@@ -64,6 +70,7 @@ export const signupPatient = createAsyncThunk(
             lastname,
             login,
             email,
+            img:imgTosend,
             password,
             adresse,
             role,

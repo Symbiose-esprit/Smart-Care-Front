@@ -16,6 +16,7 @@ export default function DoctorList() {
 
   useEffect(() => {
     dispatch(ListDoctors());
+    
   });
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
