@@ -207,7 +207,7 @@ const Departments = () => {
                                                                     alt="Doctor"
                                                                 />
 
-                                                                <Link href="/appointment">
+                                                                <Link href="/client/appointments/schedule">
                                                                     <a>Get Appointment</a>
                                                                 </Link>
                                                             </div>
